@@ -319,7 +319,7 @@ const ContactWithMap = () => {
               <p className="text-gray-600 mb-4">Rendez-vous avec la direction</p>
               <div className="space-y-2 text-sm">
                 <p className="text-blue-600 font-semibold">direction@marcelarnaud.ma</p>
-                <p className="text-gray-600">+2126000000</p>
+                <p className="text-gray-600">+2126</p>
               </div>
             </div>
           </div>

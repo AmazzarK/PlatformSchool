@@ -55,13 +55,13 @@ export default function LoginPage() {
         {/* Welcome Message */}
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold text-white mb-2 tracking-wide">
-            Welcome to
+            Groupe scolaire
           </h1>
           <h2 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-white to-blue-400 mb-4">
-            GS Marcel
+            Marcel Arnaud
           </h2>
           <p className="text-blue-100 text-lg font-medium">
-            Excellence in Education
+             parcours d'excellence
           </p>
         </div>
 

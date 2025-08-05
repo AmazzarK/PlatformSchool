@@ -18,7 +18,7 @@ const Footer = () => {
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Une institution éducative dédiée à l'excellence académique et au développement 
-              personnel de chaque élève depuis plus de 25 ans.
+              personnel de chaque élève depuis plus de 5 ans.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors p-2 bg-gray-800 rounded-full hover:bg-blue-600">
@@ -117,20 +117,20 @@ const Footer = () => {
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-blue-400 mr-3 mt-1 flex-shrink-0" />
                 <div className="text-gray-400">
-                  <p>123 Avenue de l'Éducation</p>
-                  <p>75001 Paris, France</p>
+                  <p>Bd el Fouarat,hay mohammadi</p>
+                  <p>20500 Casablanca, Maroc</p>
                 </div>
               </div>
               <div className="flex items-center">
                 <Phone className="h-5 w-5 text-blue-400 mr-3 flex-shrink-0" />
                 <a href="tel:+33123456789" className="text-gray-400 hover:text-white transition-colors">
-                  +33 1 23 45 67 89
+                  +212 6 12 34 56 78
                 </a>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-blue-400 mr-3 flex-shrink-0" />
                 <a href="mailto:contact@monecole.fr" className="text-gray-400 hover:text-white transition-colors">
-                  contact@monecole.fr
+                  contact@marcelarnaud.ma
                 </a>
               </div>
             </div>

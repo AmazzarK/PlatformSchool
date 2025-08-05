@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, Users, Clock, BookOpen } from 'lucide-react';
+import { CheckCircle, Users, Clock, BookOpen, Sparkles } from 'lucide-react';
 
 const Programs = () => {
   const [activeProgram, setActiveProgram] = useState(0);
@@ -31,9 +31,9 @@ const Programs = () => {
         "Éducation Musicale",
         "Activité Physique"
       ],
-      gradient: "from-pink-50 to-pink-100"
+      gradient: "bg-gradient-to-br from-pink-50 to-pink-100"
     },
-{
+    {
       id: 2,
       level: "1-6",
       title: "École Primaire",
@@ -55,11 +55,11 @@ const Programs = () => {
         "Français et Littérature",
         "Mathématiques",
         "Sciences et Découverte",
-        "Arabe-education islamique",
-        "Anglais et theatre",
+        "Arabe-éducation islamique",
+        "Anglais et théâtre",
         "Éducation Physique"
       ],
-      gradient: "from-blue-50 to-blue-100"
+      gradient: "bg-gradient-to-br from-blue-50 to-blue-100"
     },
     {
       id: 3,
@@ -87,7 +87,7 @@ const Programs = () => {
         "Langues Vivantes",
         "Technologie"
       ],
-      gradient: "from-blue-100 to-blue-200"
+      gradient: "bg-gradient-to-br from-blue-100 to-blue-200"
     },
     {
       id: 4,
@@ -115,38 +115,37 @@ const Programs = () => {
         "Arts et Créativité",
         "Préparation Supérieure"
       ],
-      gradient: "from-blue-200 to-blue-300"
+      gradient: "bg-gradient-to-br from-blue-200 to-blue-300"
     }
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            Nos Programmes
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-lg mb-4">
+            <BookOpen className="w-8 h-8 text-blue-600" />
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-            Parcours Éducatifs <span className="text-blue-600">Complets</span>
+          <h2 className="text-4xl font-bold text-gray-800 mb-2">
+            <span className="text-gray-800">Parcours Éducatifs </span>
+            <span className="text-blue-600">Complets</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            De la maternelle au lycée, nous proposons un parcours éducatif complet 
-            adapté à chaque étape du développement de l'enfant.
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            De la maternelle au lycée, nous proposons un parcours éducatif complet.
           </p>
         </div>
 
-        {/* Program Tabs */}
-        <div className="flex flex-col lg:flex-row justify-center mb-12">
-          <div className="flex flex-col lg:flex-row bg-gray-100 rounded-xl p-2">
+        {/* Compact Program Tabs */}
+        <div className="flex justify-center mb-2">
+          <div className="inline-flex bg-white rounded-lg shadow-md p-1">
             {programs.map((program, index) => (
               <button
                 key={program.id}
                 onClick={() => setActiveProgram(index)}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                   activeProgram === index
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-white'
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-600 hover:bg-blue-50'
                 }`}
               >
                 {program.title}
@@ -156,114 +155,78 @@ const Programs = () => {
         </div>
 
         {/* Active Program Content */}
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {programs.map((program, index) => (
             <div
               key={program.id}
-              className={`transition-all duration-500 ${
+              className={`transition-all duration-300 ${
                 activeProgram === index ? 'opacity-100 block' : 'opacity-0 hidden'
               }`}
             >
-              <div className={`bg-gradient-to-br ${program.gradient} rounded-2xl p-8 lg:p-12`}>
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  {/* Content Side */}
-                  <div>
-                    <div className="flex items-center mb-6">
-                      <div className="bg-blue-600 text-white rounded-lg w-16 h-16 flex items-center justify-center mr-4">
-                        <span className="font-bold text-xl">{program.level}</span>
-                      </div>
-                      <div>
-                        <h3 className="text-3xl lg:text-4xl font-bold text-gray-800">
-                          {program.title}
-                        </h3>
-                        <p className="text-blue-600 font-semibold text-lg">
-                          {program.subtitle}
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-                      {program.description}
-                    </p>
-
-                    {/* Program Stats */}
-                    <div className="grid grid-cols-3 gap-4 mb-8">
-                      <div className="bg-white rounded-lg p-4 text-center">
-                        <Users className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                        <div className="font-semibold text-gray-800">{program.students}</div>
-                        <div className="text-sm text-gray-600">par classe</div>
-                      </div>
-                      <div className="bg-white rounded-lg p-4 text-center">
-                        <Clock className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                        <div className="font-semibold text-gray-800">{program.age}</div>
-                        <div className="text-sm text-gray-600">âge</div>
-                      </div>
-                      <div className="bg-white rounded-lg p-4 text-center">
-                        <BookOpen className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                        <div className="font-semibold text-gray-800">{program.duration}</div>
-                        <div className="text-sm text-gray-600">durée</div>
-                      </div>
-                    </div>
-
-                    {/* Features List */}
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {program.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center">
-                          <CheckCircle className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700">{feature}</span>
+              <div className={`${program.gradient} rounded-xl shadow-lg overflow-hidden`}>
+                <div className="p-6">
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {/* Left Column */}
+                    <div className="space-y-6">
+                      <div className="flex items-start">
+                        <div className="bg-blue-600 text-white rounded-lg w-14 h-14 flex items-center justify-center mr-4">
+                          <span className="font-bold">{program.level}</span>
                         </div>
-                      ))}
-                    </div>
-                  </div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-gray-800">{program.title}</h3>
+                          <p className="text-blue-600">{program.subtitle}</p>
+                        </div>
+                      </div>
 
-                  {/* Image and Subjects Side */}
-                  <div>
-                    {/* Program Image */}
-                    <div className="rounded-xl overflow-hidden mb-6 shadow-lg">
-                      <img 
-                        src={program.image} 
-                        alt={program.title}
-                        className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
+                      <p className="text-gray-700">{program.description}</p>
 
-                    {/* Subjects */}
-                    <div className="bg-white rounded-xl p-6 shadow-lg">
-                      <h4 className="text-xl font-bold text-gray-800 mb-4">
-                        Matières Principales
-                      </h4>
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="bg-white/80 rounded-lg p-3 text-center">
+                          <Users className="h-6 w-6 text-blue-600 mx-auto mb-1" />
+                          <div className="font-bold">{program.students}</div>
+                          <div className="text-xs text-gray-500">par classe</div>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-3 text-center">
+                          <Clock className="h-6 w-6 text-blue-600 mx-auto mb-1" />
+                          <div className="font-bold">{program.age}</div>
+                          <div className="text-xs text-gray-500">âge</div>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-3 text-center">
+                          <BookOpen className="h-6 w-6 text-blue-600 mx-auto mb-1" />
+                          <div className="font-bold">{program.duration}</div>
+                          <div className="text-xs text-gray-500">durée</div>
+                        </div>
+                      </div>
+
                       <div className="grid grid-cols-2 gap-3">
-                        {program.subjects.map((subject, idx) => (
-                          <div 
-                            key={idx}
-                            className="bg-blue-50 rounded-lg p-3 text-center"
-                          >
-                            <span className="text-blue-700 font-medium text-sm">
-                              {subject}
-                            </span>
+                        {program.features.map((feature, idx) => (
+                          <div key={idx} className="bg-white/80 rounded-md p-2 flex items-start">
+                            <CheckCircle className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">{feature}</span>
                           </div>
                         ))}
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Call to Action */}
-                <div className="text-center mt-12">
-                  <div className="bg-white rounded-xl p-8 shadow-lg">
-                    <h4 className="text-2xl font-bold text-gray-800 mb-4">
-                      Intéressé par le {program.title} ?
-                    </h4>
-                    <p className="text-gray-600 mb-6">
-                      Découvrez en détail notre programme et planifiez une visite de nos installations.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
-                        Plus d'informations
-                      </button>
-                      <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
-                        Planifier une visite
-                      </button>
+                    {/* Right Column */}
+                    <div className="space-y-6">
+                      <div className="rounded-lg overflow-hidden h-48">
+                        <img 
+                          src={program.image} 
+                          alt={program.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="bg-white/80 rounded-lg p-4">
+                        <h4 className="font-bold text-gray-800 mb-3">Matières Principales</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          {program.subjects.map((subject, idx) => (
+                            <div key={idx} className="bg-blue-50 rounded-md px-3 py-2 text-center text-sm">
+                              {subject}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
