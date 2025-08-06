@@ -35,12 +35,12 @@ const Header = () => {
 
   // Memoized navigation items for performance
   const navigationItems = useMemo(() => [
-    { href: '#home', label: 'Accueil', isActive: true },
-    { href: '#about', label: 'À Propos' },
+    { href: '#HeroCarousel', label: 'Accueil', isActive: true },
+    { href: '#AboutSection', label: 'À Propos' },
     { href: '#programs', label: 'Programmes' },
-    { href: '#news', label: 'Actualités' },
-    { href: '#events', label: 'Événements' },
-    { href: '#contact', label: 'Contact' }
+    { href: '#Features', label: 'Actualités' },
+    { href: './pages/EventsPages', label: 'Événements' },
+    { href: '#ContactSection', label: 'Contact' }
   ], []);
 
   const handleMobileMenuToggle = useCallback(() => {

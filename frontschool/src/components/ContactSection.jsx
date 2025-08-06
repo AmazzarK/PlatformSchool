@@ -30,7 +30,6 @@ const ContactWithMap = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission with realistic delay
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     setIsSubmitting(false);
@@ -151,24 +150,28 @@ const ContactWithMap = () => {
         <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
           {/* Enhanced Contact Information */}
           <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 flex items-center">
-              <MapPin className="h-8 w-8 text-blue-600 mr-4" />
-              Informations de Contact
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+              <span className="flex items-center">
+                <MapPin className="h-8 w-8 text-blue-600 mr-4" />
+                Informations de Contact
+              </span>
             </h3>
             
             <div className="space-y-8 mb-12">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
-                  <div key={index} className={`group flex items-start transition-all duration-300 hover:transform hover:translate-x-2`}>
-                    <div className={`${info.gradient} rounded-2xl p-4 mr-6 flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
-                      <IconComponent className="h-6 w-6 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">{info.title}</h4>
-                      <div className="space-y-1">
-                        <p className="text-gray-700 font-medium">{info.primary}</p>
-                        <p className="text-gray-500 text-sm">{info.secondary}</p>
+                  <div key={index} className="group transition-all duration-300 hover:translate-x-2">
+                    <div className="flex items-start">
+                      <div className={`${info.gradient} rounded-2xl p-4 mr-6 flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
+                        <IconComponent className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">{info.title}</h4>
+                        <div className="space-y-1">
+                          <p className="text-gray-700 font-medium">{info.primary}</p>
+                          <p className="text-gray-500 text-sm">{info.secondary}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -178,9 +181,11 @@ const ContactWithMap = () => {
 
             {/* Enhanced Hours */}
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50 mb-12">
-              <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <Clock className="h-6 w-6 text-blue-600 mr-3" />
-                Horaires Détaillés
+              <h4 className="text-xl font-bold text-gray-900 mb-6">
+                <span className="flex items-center">
+                  <Clock className="h-6 w-6 text-blue-600 mr-3" />
+                  Horaires Détaillés
+                </span>
               </h4>
               <div className="space-y-4">
                 {[
@@ -200,9 +205,11 @@ const ContactWithMap = () => {
 
             {/* Enhanced Map */}
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50">
-              <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <MapPin className="h-6 w-6 text-blue-600 mr-3" />
-                Notre Localisation
+              <h4 className="text-xl font-bold text-gray-900 mb-6">
+                <span className="flex items-center">
+                  <MapPin className="h-6 w-6 text-blue-600 mr-3" />
+                  Notre Localisation
+                </span>
               </h4>
               <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl h-80 w-full overflow-hidden shadow-lg">
                 <iframe
@@ -223,9 +230,11 @@ const ContactWithMap = () => {
           {/* Enhanced Contact Form */}
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/50 sticky top-8">
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 flex items-center">
-                <Send className="h-8 w-8 text-blue-600 mr-4" />
-                Envoyez-nous un Message
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                <span className="flex items-center">
+                  <Send className="h-8 w-8 text-blue-600 mr-4" />
+                  Envoyez-nous un Message
+                </span>
               </h3>
               
               {isSubmitted ? (
@@ -252,7 +261,7 @@ const ContactWithMap = () => {
                       { name: 'lastName', label: 'Nom', placeholder: 'Votre nom' }
                     ].map((field) => (
                       <div key={field.name} className="relative">
-                        <label className="block text-gray-700 font-semibold mb-3 flex items-center">
+                        <label className="text-gray-700 font-semibold mb-3 flex items-center">
                           <User className="h-4 w-4 mr-2 text-blue-600" />
                           {field.label} *
                         </label>
@@ -276,7 +285,7 @@ const ContactWithMap = () => {
                   {/* Enhanced Contact Fields */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="relative">
-                      <label className="block text-gray-700 font-semibold mb-3 flex items-center">
+                      <label className="text-gray-700 font-semibold mb-3 flex items-center">
                         <Mail className="h-4 w-4 mr-2 text-blue-600" />
                         Email *
                       </label>
@@ -295,7 +304,7 @@ const ContactWithMap = () => {
                       />
                     </div>
                     <div className="relative">
-                      <label className="block text-gray-700 font-semibold mb-3 flex items-center">
+                      <label className="text-gray-700 font-semibold mb-3 flex items-center">
                         <Phone className="h-4 w-4 mr-2 text-blue-600" />
                         Téléphone
                       </label>
@@ -316,7 +325,7 @@ const ContactWithMap = () => {
                   
                   {/* Enhanced Subject */}
                   <div className="relative">
-                    <label className="block text-gray-700 font-semibold mb-3">Sujet *</label>
+                    <label className="text-gray-700 font-semibold mb-3">Sujet *</label>
                     <select 
                       name="subject"
                       value={formData.subject}
@@ -339,7 +348,7 @@ const ContactWithMap = () => {
                   
                   {/* Enhanced Message */}
                   <div className="relative">
-                    <label className="block text-gray-700 font-semibold mb-3 flex items-center">
+                    <label className="text-gray-700 font-semibold mb-3 flex items-center">
                       <MessageSquare className="h-4 w-4 mr-2 text-blue-600" />
                       Message *
                     </label>
