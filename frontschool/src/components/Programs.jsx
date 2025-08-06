@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, Users, Clock, BookOpen, Sparkles } from 'lucide-react';
+import { CheckCircle, Users, Clock, BookOpen } from 'lucide-react';
 
 const Programs = () => {
   const [activeProgram, setActiveProgram] = useState(0);
@@ -31,7 +31,7 @@ const Programs = () => {
         "Éducation Musicale",
         "Activité Physique"
       ],
-      gradient: "bg-gradient-to-br from-pink-50 to-pink-100"
+      gradient: "bg-gradient-to-br from-blue-50 to-blue-100"
     },
     {
       id: 2,
@@ -59,7 +59,7 @@ const Programs = () => {
         "Anglais et théâtre",
         "Éducation Physique"
       ],
-      gradient: "bg-gradient-to-br from-blue-50 to-blue-100"
+      gradient: "bg-gradient-to-br from-blue-100 to-blue-200"
     },
     {
       id: 3,
@@ -87,7 +87,7 @@ const Programs = () => {
         "Langues Vivantes",
         "Technologie"
       ],
-      gradient: "bg-gradient-to-br from-blue-100 to-blue-200"
+      gradient: "bg-gradient-to-br from-blue-200 to-blue-300"
     },
     {
       id: 4,
@@ -115,47 +115,47 @@ const Programs = () => {
         "Arts et Créativité",
         "Préparation Supérieure"
       ],
-      gradient: "bg-gradient-to-br from-blue-200 to-blue-300"
+      gradient: "bg-gradient-to-br from-blue-300 to-blue-400"
     }
   ];
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="min-h-[90vh] py-12 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-lg mb-4">
-            <BookOpen className="w-8 h-8 text-blue-600" />
-          </div>
-          <h2 className="text-4xl font-bold text-gray-800 mb-2">
+        {/* Header Section */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
             <span className="text-gray-800">Parcours Éducatifs </span>
             <span className="text-blue-600">Complets</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             De la maternelle au lycée, nous proposons un parcours éducatif complet.
           </p>
         </div>
 
-        {/* Compact Program Tabs */}
-        <div className="flex justify-center mb-2">
-          <div className="inline-flex bg-white rounded-lg shadow-md p-1">
-            {programs.map((program, index) => (
-              <button
-                key={program.id}
-                onClick={() => setActiveProgram(index)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  activeProgram === index
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-600 hover:bg-blue-50'
-                }`}
-              >
-                {program.title}
-              </button>
-            ))}
+        {/* Program Tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-1">
+            <div className="grid grid-cols-4 gap-1">
+              {programs.map((program, index) => (
+                <button
+                  key={program.id}
+                  onClick={() => setActiveProgram(index)}
+                  className={`px-4 py-3 rounded-md text-base font-medium transition-all ${
+                    activeProgram === index
+                      ? 'bg-blue-600 text-white shadow-sm'
+                      : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                  }`}
+                >
+                  {program.title}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Active Program Content */}
-        <div className="max-w-6xl mx-auto">
+        {/* Program Content */}
+        <div className="w-full">
           {programs.map((program, index) => (
             <div
               key={program.id}
@@ -165,33 +165,33 @@ const Programs = () => {
             >
               <div className={`${program.gradient} rounded-xl shadow-lg overflow-hidden`}>
                 <div className="p-6">
-                  <div className="grid md:grid-cols-2 gap-8">
+                  <div className="grid lg:grid-cols-2 gap-8">
                     {/* Left Column */}
                     <div className="space-y-6">
-                      <div className="flex items-start">
-                        <div className="bg-blue-600 text-white rounded-lg w-14 h-14 flex items-center justify-center mr-4">
-                          <span className="font-bold">{program.level}</span>
+                      <div className="flex items-start gap-5">
+                        <div className="bg-blue-600 text-white rounded-lg w-16 h-16 flex items-center justify-center text-lg font-bold shrink-0">
+                          {program.level}
                         </div>
                         <div>
                           <h3 className="text-2xl font-bold text-gray-800">{program.title}</h3>
-                          <p className="text-blue-600">{program.subtitle}</p>
+                          <p className="text-blue-600 text-lg font-medium">{program.subtitle}</p>
                         </div>
                       </div>
 
-                      <p className="text-gray-700">{program.description}</p>
+                      <p className="text-gray-700 text-base">{program.description}</p>
 
                       <div className="grid grid-cols-3 gap-3">
-                        <div className="bg-white/80 rounded-lg p-3 text-center">
+                        <div className="bg-white/90 rounded-lg p-3 text-center shadow-sm">
                           <Users className="h-6 w-6 text-blue-600 mx-auto mb-1" />
                           <div className="font-bold">{program.students}</div>
                           <div className="text-xs text-gray-500">par classe</div>
                         </div>
-                        <div className="bg-white/80 rounded-lg p-3 text-center">
+                        <div className="bg-white/90 rounded-lg p-3 text-center shadow-sm">
                           <Clock className="h-6 w-6 text-blue-600 mx-auto mb-1" />
                           <div className="font-bold">{program.age}</div>
                           <div className="text-xs text-gray-500">âge</div>
                         </div>
-                        <div className="bg-white/80 rounded-lg p-3 text-center">
+                        <div className="bg-white/90 rounded-lg p-3 text-center shadow-sm">
                           <BookOpen className="h-6 w-6 text-blue-600 mx-auto mb-1" />
                           <div className="font-bold">{program.duration}</div>
                           <div className="text-xs text-gray-500">durée</div>
@@ -200,7 +200,7 @@ const Programs = () => {
 
                       <div className="grid grid-cols-2 gap-3">
                         {program.features.map((feature, idx) => (
-                          <div key={idx} className="bg-white/80 rounded-md p-2 flex items-start">
+                          <div key={idx} className="bg-white/90 rounded-md p-3 flex items-start shadow-sm">
                             <CheckCircle className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
                             <span className="text-sm">{feature}</span>
                           </div>
@@ -210,18 +210,19 @@ const Programs = () => {
 
                     {/* Right Column */}
                     <div className="space-y-6">
-                      <div className="rounded-lg overflow-hidden h-48">
+                      <div className="rounded-lg overflow-hidden h-64 shadow-md">
                         <img 
                           src={program.image} 
                           alt={program.title}
                           className="w-full h-full object-cover"
+                          loading="lazy"
                         />
                       </div>
-                      <div className="bg-white/80 rounded-lg p-4">
-                        <h4 className="font-bold text-gray-800 mb-3">Matières Principales</h4>
+                      <div className="bg-white/90 rounded-lg p-4 shadow-sm">
+                        <h4 className="font-bold text-gray-800 text-lg mb-3">Matières Principales</h4>
                         <div className="grid grid-cols-2 gap-2">
                           {program.subjects.map((subject, idx) => (
-                            <div key={idx} className="bg-blue-50 rounded-md px-3 py-2 text-center text-sm">
+                            <div key={idx} className="bg-blue-100 rounded-md px-3 py-2 text-center text-sm font-medium">
                               {subject}
                             </div>
                           ))}

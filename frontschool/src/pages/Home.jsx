@@ -4,7 +4,7 @@ import HeroCarousel from '../components/HeroCarousel';
 import AboutSection from '../components/AboutSection';
 import Programs from '../components/Programs';  
 import Features from '../components/Features';
-import ContactSection from '../components/ContactSection';
+import ContactSection from '../components/ContactSection';       
 import Footer from '../components/Footer';
 
 const Home = () => {

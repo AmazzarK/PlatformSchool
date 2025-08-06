@@ -14,7 +14,7 @@ const Footer = () => {
               <div className="bg-blue-600 text-white rounded-lg p-2 mr-3">
                 <BookOpen className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold">MonÉcole</h3>
+              <h3 className="text-xl font-bold">G.S Marcel Arnaud</h3>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Une institution éducative dédiée à l'excellence académique et au développement 
@@ -129,7 +129,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-blue-400 mr-3 flex-shrink-0" />
-                <a href="mailto:contact@monecole.fr" className="text-gray-400 hover:text-white transition-colors">
+                <a href="mailto:contact@marcelarnaud.ma" className="text-gray-400 hover:text-white transition-colors">
                   contact@marcelarnaud.ma
                 </a>
               </div>
@@ -161,7 +161,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-4">Restez Informé</h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Inscrivez-vous à notre newsletter pour recevoir les dernières actualités, 
-              événements et informations importantes de MonÉcole.
+              événements et informations importantes de GS Marcel Arnaud.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <input 
@@ -180,7 +180,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center text-gray-400 mb-4 md:mb-0">
-              <p>© {currentYear} MonÉcole. Tous droits réservés.</p>
+              <p>© {currentYear} G.S Marcel Arnaud. Tous droits réservés.</p>
               <Heart className="h-4 w-4 text-red-500 mx-2" />
               <p>Fait avec passion pour l'éducation</p>
             </div>
@@ -217,7 +217,7 @@ const Footer = () => {
               <div className="text-gray-400 text-sm">Enseignants</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-400 mb-2">25+</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">5+</div>
               <div className="text-gray-400 text-sm">Années d'Expérience</div>
             </div>
           </div>

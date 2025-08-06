@@ -36,28 +36,30 @@ export default function AboutSection() {
 
   return (
     <section id="about" className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Light smoke effects base */}
+      {/* Light smoke/fog effects base */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/60 to-blue-100/40"></div>
       
       {/* Advanced light smoke particles */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-30">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-radial from-blue-200/40 via-blue-100/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-radial from-blue-300/30 via-blue-200/15 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-gradient-radial from-blue-400/25 via-blue-100/10 to-transparent rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-radial from-blue-300/35 via-blue-200/15 to-transparent rounded-full blur-3xl animate-pulse delay-1500"></div>
       </div>
 
       {/* Floating light smoke layers */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-15">
         <div className="absolute top-10 left-10 w-full h-32 bg-gradient-to-r from-transparent via-blue-200/30 to-transparent transform rotate-12 blur-xl animate-pulse"></div>
         <div className="absolute bottom-20 right-0 w-full h-24 bg-gradient-to-l from-transparent via-blue-300/20 to-transparent transform -rotate-6 blur-xl animate-pulse delay-700"></div>
+        <div className="absolute top-1/2 left-0 w-full h-20 bg-gradient-to-r from-transparent via-blue-100/25 to-transparent transform rotate-3 blur-2xl animate-pulse delay-300"></div>
       </div>
 
       {/* Light floating particles */}
       <div className="absolute inset-0">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-30 animate-ping"
+            className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-40 animate-ping"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -68,95 +70,117 @@ export default function AboutSection() {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 relative z-20">
-        {/* Enhanced Section Header */}
-        <div className="text-center mb-16">
-          <div className="relative inline-block mb-6">
+      <div className="max-w-7xl mx-auto px-6 relative z-20">
+        {/* Ethereal Light Header */}
+        <div className="text-center mb-20">
+          <div className="relative inline-block mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full blur-lg opacity-20 animate-pulse"></div>
-            <div className="relative flex items-center justify-center w-16 h-16 bg-gradient-to-br from-white/90 via-blue-50/90 to-blue-100/90 rounded-full backdrop-blur-xl border border-blue-300/40 shadow-2xl">
-              <GraduationCap className="w-8 h-8 text-blue-600" />
-              <div className="absolute -top-1 -right-1">
-                <Sparkles className="w-4 h-4 text-blue-500 animate-spin" />
-              </div>
-            </div>
-          </div>
 
-          <div className="relative inline-block bg-white/80 backdrop-blur-sm text-blue-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-blue-200/50 shadow-lg">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-blue-100/50 rounded-full blur-sm"></div>
-            <span className="relative">Notre École</span>
           </div>
-
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 relative">
-            <span className="bg-gradient-to-r from-gray-800 via-blue-700 to-gray-800 bg-clip-text text-transparent">
-              À propos de 
-            </span>
-            <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
-              {" "}nous
+          
+          <h3 className="text-5xl md:text-7xl font-bold mb-8 relative">
+            <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 bg-clip-text text-transparent drop-shadow-sm">
+              À propos de nous
             </span>
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-200/10 to-blue-300/10 blur-xl -z-10"></div>
-          </h2>
-
-          <div className="relative mb-6">
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full shadow-lg"></div>
-            <div className="absolute inset-0 w-24 h-1 bg-gradient-to-r from-blue-300 to-blue-500 mx-auto rounded-full blur-sm"></div>
+          </h3>
+          
+          <div className="relative mb-10">
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full shadow-lg"></div>
+            <div className="absolute inset-0 w-32 h-1 bg-gradient-to-r from-blue-300 to-blue-500 mx-auto rounded-full blur-sm"></div>
           </div>
-
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed font-light">
+          
+          <p className="max-w-5xl mx-auto text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
             L'École Lumière est dédiée à offrir une éducation de qualité exceptionnelle, 
             centrée sur l'élève, avec des méthodes modernes et un environnement stimulant 
             qui prépare nos étudiants aux défis de demain.
           </p>
         </div>
 
-        {/* Mission Statement Card */}
-        <div className="relative mb-16 group">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-blue-50/40 to-blue-100/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700"></div>
-          <div className="absolute inset-0 bg-gradient-to-tl from-blue-100/20 via-white/30 to-blue-50/25 rounded-2xl blur-xl animate-pulse opacity-30"></div>
+        {/* Animated Light Smoky Mission Statement */}
+        <div className="relative mb-20 group">
+          {/* Animated background layers */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-blue-50/40 to-blue-100/30 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-700"></div>
+          <div className="absolute inset-0 bg-gradient-to-tl from-blue-100/20 via-white/30 to-blue-50/25 rounded-3xl blur-2xl animate-pulse opacity-50"></div>
           
-          <div className="relative bg-white/70 backdrop-blur-xl rounded-2xl p-8 border border-blue-200/40 shadow-xl group-hover:shadow-blue-200/60 transition-all duration-500">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-blue-100/15 rounded-2xl"></div>
+          {/* Floating particles around mission */}
+          <div className="absolute inset-0 overflow-hidden rounded-3xl">
+            {[...Array(8)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-2 h-2 bg-blue-300 rounded-full opacity-30 animate-bounce"
+                style={{
+                  left: `${10 + Math.random() * 80}%`,
+                  top: `${10 + Math.random() * 80}%`,
+                  animationDelay: `${Math.random() * 2}s`,
+                  animationDuration: `${2 + Math.random() * 2}s`
+                }}
+              ></div>
+            ))}
+          </div>
+
+          {/* Animated border glow */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-200/0 via-blue-300/50 to-blue-200/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+          
+          <div className="relative bg-white/70 backdrop-blur-2xl rounded-3xl p-10 md:p-16 border border-blue-200/50 shadow-2xl group-hover:shadow-blue-200/60 group-hover:scale-[1.02] transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-blue-100/20 rounded-3xl group-hover:from-blue-100/40 group-hover:to-blue-50/30 transition-all duration-500"></div>
+            
+            {/* Animated corner accents */}
+            <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-blue-300/60 rounded-tl-lg group-hover:border-blue-400/80 transition-colors duration-300"></div>
+            <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-blue-300/60 rounded-tr-lg group-hover:border-blue-400/80 transition-colors duration-300"></div>
+            <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-blue-300/60 rounded-bl-lg group-hover:border-blue-400/80 transition-colors duration-300"></div>
+            <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-blue-300/60 rounded-br-lg group-hover:border-blue-400/80 transition-colors duration-300"></div>
             
             <div className="relative text-center">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-blue-700 bg-clip-text text-transparent mb-4">
-                Notre Mission
-              </h3>
+              {/* Animated title with typewriter effect simulation */}
+              <div className="relative mb-6">
+                <h4 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-800 via-blue-700 to-gray-800 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:via-blue-800 group-hover:to-blue-600 transition-all duration-500">
+                  Notre Mission
+                </h4>
+                <div className="absolute inset-0 text-3xl md:text-4xl font-bold text-blue-200/20 blur-sm group-hover:blur-md transition-all duration-500">
+                  Notre Mission
+                </div>
+                
+                {/* Animated underline */}
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 group-hover:w-32 transition-all duration-700 ease-out"></div>
+              </div>
               
-              <p className="text-gray-700 leading-relaxed font-light">
-                Nous nous engageons à former des <span className="text-blue-600 font-medium">citoyens éclairés</span>,{' '}
-                <span className="text-blue-600 font-medium">créatifs</span> et <span className="text-blue-600 font-medium">responsables</span>, 
-                capables de s'adapter et de contribuer positivement à un monde en constante évolution. 
-                Notre approche holistique combine excellence académique, développement personnel et 
-                ouverture sur le monde.
-              </p>
+              {/* Animated text with subtle wave effect */}
+              <div className="relative">
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto font-light group-hover:text-gray-800 transition-colors duration-300">
+                  <span className="inline-block hover:animate-pulse">Nous</span>{' '}
+                  <span className="inline-block hover:animate-pulse" style={{animationDelay: '0.1s'}}>nous</span>{' '}
+                  <span className="inline-block hover:animate-pulse" style={{animationDelay: '0.2s'}}>engageons</span>{' '}
+                  <span className="inline-block hover:animate-pulse" style={{animationDelay: '0.3s'}}>à</span>{' '}
+                  <span className="inline-block hover:animate-pulse" style={{animationDelay: '0.4s'}}>former</span>{' '}
+                  <span className="inline-block hover:animate-pulse" style={{animationDelay: '0.5s'}}>des</span>{' '}
+                  <span className="inline-block hover:animate-pulse text-blue-600 font-medium" style={{animationDelay: '0.6s'}}>citoyens</span>{' '}
+                  <span className="inline-block hover:animate-pulse text-blue-600 font-medium" style={{animationDelay: '0.7s'}}>éclairés</span>,{' '}
+                  <span className="inline-block hover:animate-pulse text-blue-600 font-medium" style={{animationDelay: '0.8s'}}>créatifs</span>{' '}
+                  et <span className="inline-block hover:animate-pulse text-blue-600 font-medium" style={{animationDelay: '0.9s'}}>responsables</span>, 
+                  capables de s'adapter et de contribuer positivement à un monde en constante évolution. 
+                  Notre approche holistique combine excellence académique, développement personnel et 
+                  ouverture sur le monde.
+                </p>
+                
+                {/* Animated reading progress indicator */}
+                <div className="absolute -bottom-4 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-300 to-blue-500 group-hover:w-full transition-all duration-[2s] ease-out delay-300"></div>
+              </div>
+              
+              {/* Floating success indicators */}
+              <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-500">
+                <div className="w-4 h-4 bg-blue-400 rounded-full animate-ping"></div>
+              </div>
+              <div className="absolute -bottom-2 -left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-700">
+                <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <div key={index} className="group/feature relative">
-                <div className="absolute inset-0 bg-white/60 rounded-xl blur-sm group-hover/feature:blur-md transition-all duration-300"></div>
-                <div className="relative bg-white/90 backdrop-blur-xl rounded-xl p-6 border border-blue-100/50 shadow-lg group-hover/feature:shadow-xl group-hover/feature:scale-105 transition-all duration-300 h-full">
-                  <div className="flex items-start">
-                    <div className="relative mr-4">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/40 to-blue-600/40 rounded-lg blur-lg group-hover/feature:blur-xl transition-all duration-500"></div>
-                      <div className="relative bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg w-12 h-12 flex items-center justify-center shadow-lg group-hover/feature:scale-110 transition-transform duration-300">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800 text-lg mb-2">{feature.title}</h4>
-                      <p className="text-gray-600 text-sm">{feature.description}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+
+
+
       </div>
     </section>
   );

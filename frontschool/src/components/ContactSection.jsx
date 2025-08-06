@@ -41,11 +41,8 @@ const ContactWithMap = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            Contact
-          </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-            Contactez <span className="text-blue-600">MonÉcole</span>
+            Contactez <span className="text-blue-600">Nous</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Notre équipe est à votre disposition pour répondre à toutes vos questions 
@@ -67,7 +64,7 @@ const ContactWithMap = () => {
                 <div>
                   <h4 className="text-xl font-semibold text-gray-800 mb-2">Adresse</h4>
                   <p className="text-gray-600 leading-relaxed">
-                     Avenue Fourat<br />
+                    Bd du Fouarat<br />
                     20500 Casablanca, Maroc
                   </p>
                 </div>
@@ -80,7 +77,7 @@ const ContactWithMap = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold text-gray-800 mb-2">Téléphone</h4>
-                  <p className="text-gray-600">+33 1 23 45 67 89</p>
+                  <p className="text-gray-600">+212 6 12 34 56 78</p>
                   <p className="text-gray-500 text-sm mt-1">Lun-Ven: 8h00-17h00</p>
                 </div>
               </div>
@@ -92,8 +89,8 @@ const ContactWithMap = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold text-gray-800 mb-2">Email</h4>
-                  <p className="text-gray-600">contact@Marcelarnaud.ma</p>
-                  <p className="text-gray-600">admissions@Marcelarnaud.ma</p>
+                  <p className="text-gray-600">contact@marcelarnaud.ma</p>
+                  <p className="text-gray-600">admissions@marcelarnaud.ma</p>
                 </div>
               </div>
 
@@ -122,22 +119,20 @@ const ContactWithMap = () => {
               </div>
             </div>
 
-            {/* Map */}
+            {/* Map - Fixed Version */}
             <div className="mt-8">
               <h4 className="text-xl font-semibold text-gray-800 mb-4">Localisation</h4>
-              <div className="bg-gray-100 rounded-xl h-80 flex items-center justify-center relative overflow-hidden">
+              <div className="bg-gray-100 rounded-xl h-80 w-full overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/dir//Bd+du+Fouarat,+Casablanca+20250/@33.5828509,-7.5496012,19.49z/data=!4m8!4m7!1m0!1m5!1m1!1s0xda7cd803d3821b1:0xbb657083817e6990!2m2!1d-7.5497608!2d33.5824923?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.349389578856!2d-7.5497608!3d33.5824923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd803d3821b1%3A0xbb657083817e6990!2sBd%20du%20Fouarat%2C%20Casablanca%2020250!5e0!3m2!1sen!2sma!4v1620000000000!5m2!1sen!2sma"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  allowFullScreen=""
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="rounded-xl"
-                  title="MonÉcole Location"
+                  title="École Marcel Arnaud Location"
                 ></iframe>
-                <div className="absolute inset-0 bg-blue-600/20 hover:bg-transparent transition-colors duration-300 rounded-xl"></div>
               </div>
             </div>
           </div>
@@ -223,7 +218,7 @@ const ContactWithMap = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="+33 1 23 45 67 89"
+                      placeholder="+212 6 12 34 56 78"
                     />
                   </div>
                 </div>
@@ -319,7 +314,7 @@ const ContactWithMap = () => {
               <p className="text-gray-600 mb-4">Rendez-vous avec la direction</p>
               <div className="space-y-2 text-sm">
                 <p className="text-blue-600 font-semibold">direction@marcelarnaud.ma</p>
-                <p className="text-gray-600">+2126</p>
+                <p className="text-gray-600">+212 600000000</p>
               </div>
             </div>
           </div>
