@@ -39,7 +39,7 @@ const Header = () => {
     { href: '#AboutSection', label: 'À Propos' },
     { href: '#programs', label: 'Programmes' },
     { href: '#Features', label: 'Actualités' },
-    { href: './pages/EventsPages', label: 'Événements' },
+    { href: './EventsPages', label: 'Événements' },
     { href: '#ContactSection', label: 'Contact' }
   ], []);
 
@@ -107,9 +107,9 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation - Enterprise Level */}
+          {/* Desktop Navigation - Modified to remove border */}
           <nav className="hidden lg:flex items-center">
-            <div className="flex items-center bg-gradient-to-r from-gray-50/80 to-blue-50/40 backdrop-blur-sm rounded-2xl p-1.5 shadow-inner shadow-blue-100/50 border border-white/60">
+            <div className="flex items-center bg-white/80 backdrop-blur-sm rounded-2xl p-1.5 shadow-inner shadow-blue-100/50">
               {navigationItems.map((item, index) => (
                 <a
                   key={item.href}
