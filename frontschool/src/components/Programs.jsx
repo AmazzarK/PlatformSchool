@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { CheckCircle, Users, Clock, BookOpen } from 'lucide-react';
+import { CheckCircle, Users, Clock, BookOpen, ChevronRight, GraduationCap } from 'lucide-react';
 
 const Programs = () => {
   const [activeProgram, setActiveProgram] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const programs = [
     {
@@ -10,7 +11,7 @@ const Programs = () => {
       level: "PS-GS",
       title: "Maternelle",
       subtitle: "Premiers Apprentissages",
-      description: "Éveil et développement harmonieux de l'enfant à travers le jeu, la découverte et les premières acquisitions.",
+      description: "Éveil et développement harmonieux de l'enfant à travers le jeu, la découverte et les premières acquisitions. Notre approche bienveillante favorise l'épanouissement de chaque enfant dans un environnement sécurisant.",
       age: "3-6 ans",
       students: "20 élèves max",
       duration: "3 années",
@@ -31,14 +32,15 @@ const Programs = () => {
         "Éducation Musicale",
         "Activité Physique"
       ],
-      gradient: "bg-gradient-to-br from-blue-50 to-blue-100"
+      gradient: "bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-100",
+      accentColor: "bg-blue-500"
     },
     {
       id: 2,
       level: "1-6",
       title: "École Primaire",
       subtitle: "Fondations Solides",
-      description: "Fondations solides en français, mathématiques, sciences et développement de la créativité et de l'autonomie.",
+      description: "Fondations solides en français, mathématiques, sciences et développement de la créativité et de l'autonomie. Nous cultivons la curiosité naturelle de l'enfant tout en structurant ses apprentissages fondamentaux.",
       age: "6-11 ans",
       students: "25 élèves max",
       duration: "5 années",
@@ -59,14 +61,15 @@ const Programs = () => {
         "Anglais et théâtre",
         "Éducation Physique"
       ],
-      gradient: "bg-gradient-to-br from-blue-100 to-blue-200"
+      gradient: "bg-gradient-to-br from-blue-100 via-blue-200 to-indigo-200",
+      accentColor: "bg-blue-600"
     },
     {
       id: 3,
       level: "7-9",
       title: "Collège",
       subtitle: "Approfondissement",
-      description: "Approfondissement des connaissances et préparation à l'orientation avec un suivi individualisé de chaque élève.",
+      description: "Approfondissement des connaissances et préparation à l'orientation avec un suivi individualisé de chaque élève. Cette étape cruciale développe l'esprit critique et prépare aux défis du lycée.",
       age: "11-15 ans",
       students: "28 élèves max",
       duration: "4 années",
@@ -87,14 +90,15 @@ const Programs = () => {
         "Langues Vivantes",
         "Technologie"
       ],
-      gradient: "bg-gradient-to-br from-blue-200 to-blue-300"
+      gradient: "bg-gradient-to-br from-blue-200 via-blue-300 to-indigo-300",
+      accentColor: "bg-blue-700"
     },
     {
       id: 4,
       level: "10-12",
       title: "Lycée",
       subtitle: "Excellence et Préparation",
-      description: "Préparation d'excellence au baccalauréat et aux études supérieures avec spécialisations et orientation personnalisée.",
+      description: "Préparation d'excellence au baccalauréat et aux études supérieures avec spécialisations et orientation personnalisée. Nous formons les leaders de demain avec rigueur académique et ouverture internationale.",
       age: "15-18 ans",
       students: "30 élèves max",
       duration: "3 années",
@@ -115,114 +119,155 @@ const Programs = () => {
         "Arts et Créativité",
         "Préparation Supérieure"
       ],
-      gradient: "bg-gradient-to-br from-blue-300 to-blue-400"
+      gradient: "bg-gradient-to-br from-blue-300 via-blue-400 to-indigo-400",
+      accentColor: "bg-blue-800"
     }
   ];
 
+  const handleProgramChange = (index) => {
+    if (index === activeProgram) return;
+    
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveProgram(index);
+      setIsTransitioning(false);
+    }, 150);
+  };
+
   return (
-    <section className="min-h-[90vh] py-12 bg-gray-50">
-      <div className="container mx-auto px-4">
-        {/* Header Section */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
-            <span className="text-gray-800">Parcours Éducatifs </span>
-            <span className="text-blue-600">Complets</span>
+    <section className="min-h-screen py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Enhanced Header Section */}
+        <div className="text-center mb-16 relative">
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-700">Parcours Éducatifs </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Complets</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            De la maternelle au lycée, nous proposons un parcours éducatif complet.
+          <p className="text-gray-600 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-light">
+            De la maternelle au lycée, nous proposons un parcours éducatif complet 
+            adapté à chaque étape du développement de votre enfant.
           </p>
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/5 via-transparent to-indigo-600/5 rounded-3xl blur-3xl"></div>
         </div>
 
-        {/* Program Tabs */}
-        <div className="flex justify-center mb-8">
-          <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-1">
-            <div className="grid grid-cols-4 gap-1">
+        {/* Enhanced Program Tabs */}
+        <div className="flex justify-center mb-12">
+          <div className="w-full max-w-5xl bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-2">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
               {programs.map((program, index) => (
                 <button
                   key={program.id}
-                  onClick={() => setActiveProgram(index)}
-                  className={`px-4 py-3 rounded-md text-base font-medium transition-all ${
+                  onClick={() => handleProgramChange(index)}
+                  className={`group relative px-6 py-4 rounded-xl text-base font-semibold transition-all duration-300 overflow-hidden ${
                     activeProgram === index
-                      ? 'bg-blue-600 text-white shadow-sm'
-                      : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg transform scale-[1.02]'
+                      : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:shadow-md'
                   }`}
                 >
-                  {program.title}
+                  <div className="relative z-10 flex flex-col items-center">
+                    <span className="text-xs font-bold opacity-75 mb-1">{program.level}</span>
+                    <span>{program.title}</span>
+                  </div>
+                  {activeProgram === index && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-xl"></div>
+                  )}
                 </button>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Program Content */}
-        <div className="w-full">
+        {/* Enhanced Program Content */}
+        <div className="w-full relative">
           {programs.map((program, index) => (
             <div
               key={program.id}
-              className={`transition-all duration-300 ${
-                activeProgram === index ? 'opacity-100 block' : 'opacity-0 hidden'
+              className={`transition-all duration-500 ${
+                activeProgram === index 
+                  ? `opacity-100 transform translate-y-0 ${isTransitioning ? 'scale-[0.98]' : 'scale-100'}` 
+                  : 'opacity-0 absolute inset-0 transform translate-y-4 pointer-events-none'
               }`}
             >
-              <div className={`${program.gradient} rounded-xl shadow-lg overflow-hidden`}>
-                <div className="p-6">
-                  <div className="grid lg:grid-cols-2 gap-8">
-                    {/* Left Column */}
-                    <div className="space-y-6">
-                      <div className="flex items-start gap-5">
-                        <div className="bg-blue-600 text-white rounded-lg w-16 h-16 flex items-center justify-center text-lg font-bold shrink-0">
+              <div className={`${program.gradient} rounded-3xl shadow-2xl overflow-hidden border border-white/20 backdrop-blur-sm`}>
+                <div className="p-8 lg:p-12">
+                  <div className="grid lg:grid-cols-2 gap-12">
+                    {/* Enhanced Left Column */}
+                    <div className="space-y-8">
+                      {/* Program Header */}
+                      <div className="flex items-start gap-6">
+                        <div className={`${program.accentColor} text-white rounded-2xl w-20 h-20 flex items-center justify-center text-xl font-bold shrink-0 shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300`}>
                           {program.level}
                         </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-gray-800">{program.title}</h3>
-                          <p className="text-blue-600 text-lg font-medium">{program.subtitle}</p>
+                        <div className="flex-1">
+                          <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2 leading-tight">{program.title}</h3>
+                          <p className="text-blue-700 text-xl font-semibold flex items-center">
+                            {program.subtitle}
+                            <ChevronRight className="h-5 w-5 ml-2" />
+                          </p>
                         </div>
                       </div>
 
-                      <p className="text-gray-700 text-base">{program.description}</p>
+                      {/* Description */}
+                      <p className="text-gray-700 text-lg leading-relaxed font-light">{program.description}</p>
 
-                      <div className="grid grid-cols-3 gap-3">
-                        <div className="bg-white/90 rounded-lg p-3 text-center shadow-sm">
-                          <Users className="h-6 w-6 text-blue-600 mx-auto mb-1" />
-                          <div className="font-bold">{program.students}</div>
-                          <div className="text-xs text-gray-500">par classe</div>
-                        </div>
-                        <div className="bg-white/90 rounded-lg p-3 text-center shadow-sm">
-                          <Clock className="h-6 w-6 text-blue-600 mx-auto mb-1" />
-                          <div className="font-bold">{program.age}</div>
-                          <div className="text-xs text-gray-500">âge</div>
-                        </div>
-                        <div className="bg-white/90 rounded-lg p-3 text-center shadow-sm">
-                          <BookOpen className="h-6 w-6 text-blue-600 mx-auto mb-1" />
-                          <div className="font-bold">{program.duration}</div>
-                          <div className="text-xs text-gray-500">durée</div>
-                        </div>
+                      {/* Stats Cards */}
+                      <div className="grid grid-cols-3 gap-4">
+                        {[
+                          { icon: Users, label: program.students, sublabel: "par classe" },
+                          { icon: Clock, label: program.age, sublabel: "âge" },
+                          { icon: BookOpen, label: program.duration, sublabel: "durée" }
+                        ].map((stat, idx) => (
+                          <div key={idx} className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border border-white/50">
+                            <stat.icon className="h-7 w-7 text-blue-600 mx-auto mb-3" />
+                            <div className="font-bold text-gray-900">{stat.label}</div>
+                            <div className="text-xs text-gray-500 font-medium uppercase tracking-wide">{stat.sublabel}</div>
+                          </div>
+                        ))}
                       </div>
 
-                      <div className="grid grid-cols-2 gap-3">
+                      {/* Features Grid */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {program.features.map((feature, idx) => (
-                          <div key={idx} className="bg-white/90 rounded-md p-3 flex items-start shadow-sm">
-                            <CheckCircle className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm">{feature}</span>
+                          <div key={idx} className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 flex items-start shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:translate-x-1 border border-white/50 group">
+                            <CheckCircle className="h-6 w-6 text-blue-600 mr-3 mt-0.5 flex-shrink-0 group-hover:text-blue-700 transition-colors" />
+                            <span className="text-sm font-medium text-gray-700 leading-relaxed">{feature}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* Right Column */}
-                    <div className="space-y-6">
-                      <div className="rounded-lg overflow-hidden h-64 shadow-md">
+                    {/* Enhanced Right Column */}
+                    <div className="space-y-8">
+                      {/* Image */}
+                      <div className="relative rounded-3xl overflow-hidden h-80 shadow-2xl group">
                         <img 
                           src={program.image} 
                           alt={program.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                           loading="lazy"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg">
+                            <div className="text-sm font-semibold text-gray-900">{program.title}</div>
+                            <div className="text-xs text-gray-600">{program.subtitle}</div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="bg-white/90 rounded-lg p-4 shadow-sm">
-                        <h4 className="font-bold text-gray-800 text-lg mb-3">Matières Principales</h4>
-                        <div className="grid grid-cols-2 gap-2">
+
+                      {/* Subjects */}
+                      <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50">
+                        <h4 className="font-bold text-gray-900 text-xl mb-6 flex items-center">
+                          <BookOpen className="h-6 w-6 text-blue-600 mr-3" />
+                          Matières Principales
+                        </h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {program.subjects.map((subject, idx) => (
-                            <div key={idx} className="bg-blue-100 rounded-md px-3 py-2 text-center text-sm font-medium">
+                            <div 
+                              key={idx} 
+                              className="bg-gradient-to-r from-blue-100 to-indigo-100 hover:from-blue-200 hover:to-indigo-200 rounded-xl px-4 py-3 text-center text-sm font-semibold text-gray-800 transition-all duration-300 hover:shadow-md hover:transform hover:scale-105 border border-blue-200/50"
+                            >
                               {subject}
                             </div>
                           ))}

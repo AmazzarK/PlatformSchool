@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle, User, MessageSquare } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, User, MessageSquare, Building2, Users2, UserCheck, ArrowRight, Star } from 'lucide-react';
 
 const ContactWithMap = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,13 @@ const ContactWithMap = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [focusedField, setFocusedField] = useState(null);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -19,10 +26,16 @@ const ContactWithMap = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
+    setIsSubmitting(true);
+    
+    // Simulate form submission with realistic delay
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    setIsSubmitting(false);
     setIsSubmitted(true);
+    
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
@@ -33,96 +46,165 @@ const ContactWithMap = () => {
         subject: '',
         message: ''
       });
-    }, 3000);
+    }, 4000);
   };
 
+  const contactInfo = [
+    {
+      icon: MapPin,
+      title: "Adresse",
+      primary: "Bd du Fouarat",
+      secondary: "20500 Casablanca, Maroc",
+      gradient: "bg-gradient-to-br from-blue-500 to-indigo-600",
+      bgColor: "bg-blue-50"
+    },
+    {
+      icon: Phone,
+      title: "Téléphone",
+      primary: "+212 6 12 34 56 78",
+      secondary: "Lun-Ven: 8h00-17h00",
+      gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
+      bgColor: "bg-indigo-50"
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      primary: "contact@marcelarnaud.ma",
+      secondary: "admissions@marcelarnaud.ma",
+      gradient: "bg-gradient-to-br from-purple-500 to-pink-600",
+      bgColor: "bg-purple-50"
+    },
+    {
+      icon: Clock,
+      title: "Horaires d'Ouverture",
+      primary: "Lun-Ven: 8h00-17h00",
+      secondary: "Sam: 9h00-12h00",
+      gradient: "bg-gradient-to-br from-cyan-500 to-blue-600",
+      bgColor: "bg-cyan-50"
+    }
+  ];
+
+  const quickContacts = [
+    {
+      icon: UserCheck,
+      title: "Admissions",
+      description: "Pour toutes questions sur les inscriptions et dossiers d'admission",
+      email: "admissions@marcelarnaud.ma",
+      phone: "+212 600000000",
+      gradient: "bg-gradient-to-br from-blue-500 to-indigo-600",
+      bgGradient: "bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-100"
+    },
+    {
+      icon: Users2,
+      title: "Vie Scolaire",
+      description: "Suivi des élèves, questions pédagogiques et accompagnement",
+      email: "vie-scolaire@marcelarnaud.ma",
+      phone: "+212 600000000",
+      gradient: "bg-gradient-to-br from-indigo-600 to-purple-600",
+      bgGradient: "bg-gradient-to-br from-indigo-50 via-indigo-100 to-purple-100"
+    },
+    {
+      icon: Building2,
+      title: "Direction",
+      description: "Rendez-vous avec la direction et questions administratives",
+      email: "direction@marcelarnaud.ma",
+      phone: "+212 600000000",
+      gradient: "bg-gradient-to-br from-purple-600 to-pink-600",
+      bgGradient: "bg-gradient-to-br from-purple-50 via-purple-100 to-pink-100"
+    }
+  ];
+
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-            Contactez <span className="text-blue-600">Nous</span>
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 relative overflow-hidden">
+      {/* Background Patterns */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-20 left-20 w-40 h-40 bg-blue-200 rounded-full blur-3xl"></div>
+        <div className="absolute top-60 right-20 w-56 h-56 bg-indigo-200 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 left-1/3 w-48 h-48 bg-purple-200 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative">
+        {/* Enhanced Section Header */}
+        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-8 shadow-2xl hover:shadow-blue-200 transition-all duration-300 hover:scale-110">
+            <MessageSquare className="h-10 w-10 text-white" />
+          </div>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-700">Contactez </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Nous</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Notre équipe est à votre disposition pour répondre à toutes vos questions 
-            et vous accompagner dans votre projet éducatif.
+
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <div className="w-32 h-1 bg-gradient-to-r from-blue-400 via-blue-600 to-indigo-600 rounded-full"></div>
+              <div className="absolute inset-0 w-32 h-1 bg-gradient-to-r from-blue-400 via-blue-600 to-indigo-600 rounded-full blur-sm opacity-50"></div>
+            </div>
+          </div>
+
+          <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+            Notre équipe dédiée est à votre disposition pour répondre à toutes vos questions 
+            et vous accompagner dans votre projet éducatif avec expertise et bienveillance.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-          {/* Contact Information */}
-          <div>
-            <h3 className="text-3xl font-bold text-gray-800 mb-8">Informations de Contact</h3>
+        <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+          {/* Enhanced Contact Information */}
+          <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 flex items-center">
+              <MapPin className="h-8 w-8 text-blue-600 mr-4" />
+              Informations de Contact
+            </h3>
             
-            <div className="space-y-8">
-              {/* Address */}
-              <div className="flex items-start">
-                <div className="bg-blue-100 rounded-full p-4 mr-6 flex-shrink-0">
-                  <MapPin className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-2">Adresse</h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    Bd du Fouarat<br />
-                    20500 Casablanca, Maroc
-                  </p>
-                </div>
-              </div>
-
-              {/* Phone */}
-              <div className="flex items-start">
-                <div className="bg-blue-100 rounded-full p-4 mr-6 flex-shrink-0">
-                  <Phone className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-2">Téléphone</h4>
-                  <p className="text-gray-600">+212 6 12 34 56 78</p>
-                  <p className="text-gray-500 text-sm mt-1">Lun-Ven: 8h00-17h00</p>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="flex items-start">
-                <div className="bg-blue-100 rounded-full p-4 mr-6 flex-shrink-0">
-                  <Mail className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-2">Email</h4>
-                  <p className="text-gray-600">contact@marcelarnaud.ma</p>
-                  <p className="text-gray-600">admissions@marcelarnaud.ma</p>
-                </div>
-              </div>
-
-              {/* Hours */}
-              <div className="flex items-start">
-                <div className="bg-blue-100 rounded-full p-4 mr-6 flex-shrink-0">
-                  <Clock className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-2">Horaires d'Ouverture</h4>
-                  <div className="text-gray-600 space-y-1">
-                    <div className="flex justify-between w-64">
-                      <span>Lundi - Vendredi:</span>
-                      <span>8h00 - 17h00</span>
+            <div className="space-y-8 mb-12">
+              {contactInfo.map((info, index) => {
+                const IconComponent = info.icon;
+                return (
+                  <div key={index} className={`group flex items-start transition-all duration-300 hover:transform hover:translate-x-2`}>
+                    <div className={`${info.gradient} rounded-2xl p-4 mr-6 flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
+                      <IconComponent className="h-6 w-6 text-white" />
                     </div>
-                    <div className="flex justify-between w-64">
-                      <span>Samedi:</span>
-                      <span>9h00 - 12h00</span>
-                    </div>
-                    <div className="flex justify-between w-64">
-                      <span>Dimanche:</span>
-                      <span>Fermé</span>
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">{info.title}</h4>
+                      <div className="space-y-1">
+                        <p className="text-gray-700 font-medium">{info.primary}</p>
+                        <p className="text-gray-500 text-sm">{info.secondary}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                );
+              })}
+            </div>
+
+            {/* Enhanced Hours */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50 mb-12">
+              <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                <Clock className="h-6 w-6 text-blue-600 mr-3" />
+                Horaires Détaillés
+              </h4>
+              <div className="space-y-4">
+                {[
+                  { day: "Lundi - Vendredi", hours: "8h00 - 17h00", active: true },
+                  { day: "Samedi", hours: "9h00 - 12h00", active: true },
+                  { day: "Dimanche", hours: "Fermé", active: false }
+                ].map((schedule, idx) => (
+                  <div key={idx} className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl">
+                    <span className="font-semibold text-gray-900">{schedule.day}</span>
+                    <span className={`font-bold ${schedule.active ? 'text-blue-600' : 'text-gray-400'}`}>
+                      {schedule.hours}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Map - Fixed Version */}
-            <div className="mt-8">
-              <h4 className="text-xl font-semibold text-gray-800 mb-4">Localisation</h4>
-              <div className="bg-gray-100 rounded-xl h-80 w-full overflow-hidden">
+            {/* Enhanced Map */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50">
+              <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                <MapPin className="h-6 w-6 text-blue-600 mr-3" />
+                Notre Localisation
+              </h4>
+              <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl h-80 w-full overflow-hidden shadow-lg">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.349389578856!2d-7.5497608!3d33.5824923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd803d3821b1%3A0xbb657083817e6990!2sBd%20du%20Fouarat%2C%20Casablanca%2020250!5e0!3m2!1sen!2sma!4v1620000000000!5m2!1sen!2sma"
                   width="100%"
@@ -132,191 +214,234 @@ const ContactWithMap = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="École Marcel Arnaud Location"
+                  className="rounded-2xl"
                 ></iframe>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-3xl font-bold text-gray-800 mb-8 flex items-center">
-              <MessageSquare className="h-8 w-8 text-blue-600 mr-3" />
-              Envoyez-nous un Message
-            </h3>
-            
-            {isSubmitted ? (
-              <div className="text-center py-12">
-                <div className="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle className="h-10 w-10 text-green-600" />
-                </div>
-                <h4 className="text-2xl font-bold text-gray-800 mb-4">Message Envoyé !</h4>
-                <p className="text-gray-600">
-                  Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Fields */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-3">
-                      <User className="inline h-4 w-4 mr-2" />
-                      Prénom *
-                    </label>
-                    <input 
-                      type="text" 
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="Votre prénom"
-                      required
-                    />
+          {/* Enhanced Contact Form */}
+          <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+            <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/50 sticky top-8">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 flex items-center">
+                <Send className="h-8 w-8 text-blue-600 mr-4" />
+                Envoyez-nous un Message
+              </h3>
+              
+              {isSubmitted ? (
+                <div className="text-center py-16">
+                  <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-8 shadow-lg">
+                    <CheckCircle className="h-12 w-12 text-green-600" />
                   </div>
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-3">
-                      <User className="inline h-4 w-4 mr-2" />
-                      Nom *
-                    </label>
-                    <input 
-                      type="text" 
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="Votre nom"
-                      required
-                    />
+                  <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Message Envoyé !</h4>
+                  <p className="text-gray-600 text-lg leading-relaxed max-w-md mx-auto">
+                    Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais.
+                  </p>
+                  <div className="flex items-center justify-center mt-6 text-blue-600">
+                    <Star className="h-5 w-5 fill-current" />
+                    <Star className="h-5 w-5 fill-current mx-1" />
+                    <Star className="h-5 w-5 fill-current" />
                   </div>
                 </div>
-                
-                {/* Email and Phone */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-3">
-                      <Mail className="inline h-4 w-4 mr-2" />
-                      Email *
-                    </label>
-                    <input 
-                      type="email" 
-                      name="email"
-                      value={formData.email}
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Enhanced Name Fields */}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {[
+                      { name: 'firstName', label: 'Prénom', placeholder: 'Votre prénom' },
+                      { name: 'lastName', label: 'Nom', placeholder: 'Votre nom' }
+                    ].map((field) => (
+                      <div key={field.name} className="relative">
+                        <label className="block text-gray-700 font-semibold mb-3 flex items-center">
+                          <User className="h-4 w-4 mr-2 text-blue-600" />
+                          {field.label} *
+                        </label>
+                        <input 
+                          type="text" 
+                          name={field.name}
+                          value={formData[field.name]}
+                          onChange={handleInputChange}
+                          onFocus={() => setFocusedField(field.name)}
+                          onBlur={() => setFocusedField(null)}
+                          className={`w-full px-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                            focusedField === field.name ? 'transform scale-[1.02] shadow-lg' : ''
+                          }`}
+                          placeholder={field.placeholder}
+                          required
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Enhanced Contact Fields */}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="relative">
+                      <label className="block text-gray-700 font-semibold mb-3 flex items-center">
+                        <Mail className="h-4 w-4 mr-2 text-blue-600" />
+                        Email *
+                      </label>
+                      <input 
+                        type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        onFocus={() => setFocusedField('email')}
+                        onBlur={() => setFocusedField(null)}
+                        className={`w-full px-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                          focusedField === 'email' ? 'transform scale-[1.02] shadow-lg' : ''
+                        }`}
+                        placeholder="votre.email@exemple.com"
+                        required
+                      />
+                    </div>
+                    <div className="relative">
+                      <label className="block text-gray-700 font-semibold mb-3 flex items-center">
+                        <Phone className="h-4 w-4 mr-2 text-blue-600" />
+                        Téléphone
+                      </label>
+                      <input 
+                        type="tel" 
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        onFocus={() => setFocusedField('phone')}
+                        onBlur={() => setFocusedField(null)}
+                        className={`w-full px-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                          focusedField === 'phone' ? 'transform scale-[1.02] shadow-lg' : ''
+                        }`}
+                        placeholder="+212 6 12 34 56 78"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Enhanced Subject */}
+                  <div className="relative">
+                    <label className="block text-gray-700 font-semibold mb-3">Sujet *</label>
+                    <select 
+                      name="subject"
+                      value={formData.subject}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="votre.email@exemple.com"
+                      onFocus={() => setFocusedField('subject')}
+                      onBlur={() => setFocusedField(null)}
+                      className={`w-full px-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                        focusedField === 'subject' ? 'transform scale-[1.02] shadow-lg' : ''
+                      }`}
                       required
-                    />
+                    >
+                      <option value="">Sélectionnez un sujet</option>
+                      <option value="inscription">Demande d'inscription</option>
+                      <option value="information">Information générale</option>
+                      <option value="visite">Visite de l'école</option>
+                      <option value="programme">Questions sur les programmes</option>
+                      <option value="autre">Autre</option>
+                    </select>
                   </div>
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-3">
-                      <Phone className="inline h-4 w-4 mr-2" />
-                      Téléphone
+                  
+                  {/* Enhanced Message */}
+                  <div className="relative">
+                    <label className="block text-gray-700 font-semibold mb-3 flex items-center">
+                      <MessageSquare className="h-4 w-4 mr-2 text-blue-600" />
+                      Message *
                     </label>
-                    <input 
-                      type="tel" 
-                      name="phone"
-                      value={formData.phone}
+                    <textarea 
+                      rows="6" 
+                      name="message"
+                      value={formData.message}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="+212 6 12 34 56 78"
-                    />
+                      onFocus={() => setFocusedField('message')}
+                      onBlur={() => setFocusedField(null)}
+                      className={`w-full px-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 resize-none ${
+                        focusedField === 'message' ? 'transform scale-[1.02] shadow-lg' : ''
+                      }`}
+                      placeholder="Décrivez votre demande en détail..."
+                      required
+                    ></textarea>
                   </div>
-                </div>
-                
-                {/* Subject */}
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-3">Sujet *</label>
-                  <select 
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    required
+                  
+                  {/* Enhanced Submit Button */}
+                  <button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`group relative w-full overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl ${
+                      isSubmitting 
+                        ? 'opacity-75 cursor-not-allowed' 
+                        : 'hover:scale-[1.02] active:scale-[0.98]'
+                    }`}
                   >
-                    <option value="">Sélectionnez un sujet</option>
-                    <option value="inscription">Demande d'inscription</option>
-                    <option value="information">Information générale</option>
-                    <option value="visite">Visite de l'école</option>
-                    <option value="programme">Questions sur les programmes</option>
-                    <option value="autre">Autre</option>
-                  </select>
-                </div>
-                
-                {/* Message */}
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-3">
-                    <MessageSquare className="inline h-4 w-4 mr-2" />
-                    Message *
-                  </label>
-                  <textarea 
-                    rows="6" 
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
-                    placeholder="Décrivez votre demande en détail..."
-                    required
-                  ></textarea>
-                </div>
-                
-                {/* Submit Button */}
-                <button 
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
-                >
-                  <Send className="h-5 w-5 mr-2" />
-                  Envoyer le Message
-                </button>
+                    <span className="relative z-10 flex items-center justify-center">
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+                          Envoi en cours...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-5 w-5 mr-3 group-hover:translate-x-1 transition-transform duration-300" />
+                          Envoyer le Message
+                        </>
+                      )}
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </button>
 
-                {/* Privacy Notice */}
-                <p className="text-sm text-gray-500 text-center">
-                  En soumettant ce formulaire, vous acceptez que vos données soient utilisées 
-                  pour répondre à votre demande conformément à notre politique de confidentialité.
-                </p>
-              </form>
-            )}
+                  {/* Privacy Notice */}
+                  <p className="text-sm text-gray-500 text-center leading-relaxed bg-gray-50 rounded-xl p-4">
+                    🔒 En soumettant ce formulaire, vous acceptez que vos données soient utilisées 
+                    pour répondre à votre demande conformément à notre politique de confidentialité.
+                  </p>
+                </form>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Quick Contact Cards */}
-        <div className="mt-20">
-          <h3 className="text-3xl font-bold text-gray-800 text-center mb-12">Contacts Directs</h3>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <User className="h-8 w-8 text-white" />
-              </div>
-              <h4 className="text-xl font-bold text-gray-800 mb-2">Admissions</h4>
-              <p className="text-gray-600 mb-4">Pour toutes questions sur les inscriptions</p>
-              <div className="space-y-2 text-sm">
-                <p className="text-blue-600 font-semibold">admissions@marcelarnaud.ma</p>
-                <p className="text-gray-600">+212 600000000</p>
-              </div>
-            </div>
+        {/* Enhanced Quick Contact Cards */}
+        <div className={`mt-24 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contacts Directs</h3>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Contactez directement le service adapté à votre demande pour un traitement plus rapide
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {quickContacts.map((contact, index) => {
+              const IconComponent = contact.icon;
+              return (
+                <div 
+                  key={index}
+                  className={`group ${contact.bgGradient} rounded-3xl p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 border border-white/50 backdrop-blur-sm`}
+                >
+                  <div className={`${contact.gradient} rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
+                    <IconComponent className="h-10 w-10 text-white" />
+                  </div>
+                  
+                  <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">
+                    {contact.title}
+                  </h4>
+                  
+                  <p className="text-gray-600 mb-6 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    {contact.description}
+                  </p>
+                  
+                  <div className="space-y-3">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm">
+                      <p className="text-blue-600 font-bold text-sm">{contact.email}</p>
+                    </div>
+                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm">
+                      <p className="text-gray-700 font-semibold text-sm">{contact.phone}</p>
+                    </div>
+                  </div>
 
-            <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="bg-blue-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <MessageSquare className="h-8 w-8 text-white" />
-              </div>
-              <h4 className="text-xl font-bold text-gray-800 mb-2">Vie Scolaire</h4>
-              <p className="text-gray-600 mb-4">Suivi des élèves et questions pédagogiques</p>
-              <div className="space-y-2 text-sm">
-                <p className="text-blue-600 font-semibold">vie-scolaire@marcelarnaud.ma</p>
-                <p className="text-gray-600">+212 60000000</p>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-200 to-blue-300 rounded-xl p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="bg-blue-800 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Phone className="h-8 w-8 text-white" />
-              </div>
-              <h4 className="text-xl font-bold text-gray-800 mb-2">Direction</h4>
-              <p className="text-gray-600 mb-4">Rendez-vous avec la direction</p>
-              <div className="space-y-2 text-sm">
-                <p className="text-blue-600 font-semibold">direction@marcelarnaud.ma</p>
-                <p className="text-gray-600">+212 600000000</p>
-              </div>
-            </div>
+                  <div className="mt-6 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="flex items-center justify-center text-blue-600 font-semibold text-sm">
+                      <span>Contacter maintenant</span>
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

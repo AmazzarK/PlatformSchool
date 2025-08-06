@@ -16,7 +16,7 @@ const HeroCarousel = () => {
       title: "Bienvenue à Marcel Arnaud",
       subtitle: "Excellence Éducative",
       description: "Façonnons l'avenir avec une éducation d'excellence, innovation et bienveillance pour chaque élève dans un environnement stimulant.",
-      image: "https://images.unsplash.com/photo-1509062522246-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=90",
+      image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=90",
       primaryButton: "Découvrir nos programmes",
       secondaryButton: "Planifier une visite",
       stats: [
