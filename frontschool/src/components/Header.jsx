@@ -36,7 +36,7 @@ const Header = () => {
   // Memoized navigation items for performance
   const navigationItems = useMemo(() => [
     { href: '#HeroCarousel', label: 'Accueil', isActive: true },
-    { href: '#AboutSection', label: 'À Propos' },
+    { href: '#AboutSection', label: 'Atouts' },
     { href: '#programs', label: 'Programmes' },
     { href: '#Features', label: 'Actualités' },
     { href: './EventsPages', label: 'Événements' },
@@ -107,37 +107,40 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation - Modified to remove border */}
-          <nav className="hidden lg:flex items-center">
-            <div className="flex items-center bg-white/80 backdrop-blur-sm rounded-2xl p-1.5 shadow-inner shadow-blue-100/50">
-              {navigationItems.map((item, index) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={`
-                    group relative px-5 lg:px-6 py-3 font-semibold transition-all duration-500 rounded-xl
-                    ${item.isActive 
-                      ? 'text-blue-700 bg-white shadow-lg shadow-blue-500/10 border border-blue-100/50' 
-                      : 'text-gray-700 hover:text-blue-700 hover:bg-white hover:shadow-md hover:shadow-blue-400/8'
-                    }
-                  `}
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <span className="relative z-20 text-sm lg:text-base">{item.label}</span>
-                  
-                  {/* Hover effect background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-indigo-50/30 to-blue-50/50 opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-500 scale-95 group-hover:scale-100" />
-                  
-                  {/* Active indicator */}
-                  {item.isActive && (
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full" />
-                  )}
-                </a>
-              ))}
-            </div>
+          {/* Desktop Navigation - Borderless with individual hover effects */}
+          <nav className="hidden lg:flex items-center space-x-2">
+            {navigationItems.map((item, index) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`
+                  group relative px-5 lg:px-6 py-3 font-semibold transition-all duration-500 rounded-xl
+                  ${item.isActive 
+                    ? 'text-blue-700 bg-white/90 backdrop-blur-sm shadow-lg shadow-blue-500/15 border border-blue-100/50' 
+                    : 'text-gray-700 hover:text-blue-700 hover:bg-white/80 hover:backdrop-blur-sm hover:shadow-lg hover:shadow-blue-400/10 hover:border hover:border-blue-100/30'
+                  }
+                `}
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <span className="relative z-20 text-sm lg:text-base">{item.label}</span>
+                
+                {/* Hover effect background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-50/40 via-indigo-50/20 to-blue-50/40 opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-500 scale-95 group-hover:scale-100" />
+                
+                {/* Active indicator */}
+                {item.isActive && (
+                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full" />
+                )}
+                
+                {/* Hover indicator for non-active items */}
+                {!item.isActive && (
+                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-blue-500 rounded-full group-hover:w-1 transition-all duration-300" />
+                )}
+              </a>
+            ))}
             
             {/* Premium CTA Button */}
-            <div className="ml-8 relative">
+            <div className="ml-6 relative">
               <button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 text-white px-8 py-3.5 rounded-2xl font-bold transition-all duration-700 shadow-xl shadow-blue-600/25 hover:shadow-2xl hover:shadow-blue-600/35 hover:-translate-y-1 active:translate-y-0 active:shadow-lg">
                 
                 {/* Animated shine effect */}
