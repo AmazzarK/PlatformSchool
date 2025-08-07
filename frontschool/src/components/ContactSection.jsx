@@ -125,9 +125,7 @@ const ContactWithMap = () => {
       <div className="container mx-auto px-4 relative">
         {/* Enhanced Section Header */}
         <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-8 shadow-2xl hover:shadow-blue-200 transition-all duration-300 hover:scale-110">
-            <MessageSquare className="h-10 w-10 text-white" />
-          </div>
+        
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-700">Contactez </span>
@@ -202,29 +200,6 @@ const ContactWithMap = () => {
                 ))}
               </div>
             </div>
-
-            {/* Enhanced Map */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50">
-              <h4 className="text-xl font-bold text-gray-900 mb-6">
-                <span className="flex items-center">
-                  <MapPin className="h-6 w-6 text-blue-600 mr-3" />
-                  Notre Localisation
-                </span>
-              </h4>
-              <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl h-80 w-full overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.349389578856!2d-7.5497608!3d33.5824923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd803d3821b1%3A0xbb657083817e6990!2sBd%20du%20Fouarat%2C%20Casablanca%2020250!5e0!3m2!1sen!2sma!4v1620000000000!5m2!1sen!2sma"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="École Marcel Arnaud Location"
-                  className="rounded-2xl"
-                ></iframe>
-              </div>
-            </div>
           </div>
 
           {/* Enhanced Contact Form */}
@@ -253,7 +228,7 @@ const ContactWithMap = () => {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-6">
                   {/* Enhanced Name Fields */}
                   <div className="grid md:grid-cols-2 gap-6">
                     {[
@@ -369,7 +344,8 @@ const ContactWithMap = () => {
                   
                   {/* Enhanced Submit Button */}
                   <button 
-                    type="submit"
+                    type="button"
+                    onClick={handleSubmit}
                     disabled={isSubmitting}
                     className={`group relative w-full overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl ${
                       isSubmitting 
@@ -398,8 +374,42 @@ const ContactWithMap = () => {
                     🔒 En soumettant ce formulaire, vous acceptez que vos données soient utilisées 
                     pour répondre à votre demande conformément à notre politique de confidentialité.
                   </p>
-                </form>
+                </div>
               )}
+            </div>
+          </div>
+        </div>
+        
+        {/* Full Width Map Section */}
+        <div className={`mt-24 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <span className="flex items-center justify-center">
+                <MapPin className="h-8 w-8 text-blue-600 mr-4" />
+                Notre Localisation
+              </span>
+            </h3>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Située au cœur de Casablanca, notre école est facilement accessible en transport public et privé
+            </p>
+          </div>
+          
+          {/* Full width map container */}
+          <div className="w-full relative">
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-white/50 overflow-hidden">
+              <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl h-96 w-full overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.349389578856!2d-7.5497608!3d33.5824923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd803d3821b1%3A0xbb657083817e6990!2sBd%20du%20Fouarat%2C%20Casablanca%2020250!5e0!3m2!1sen!2sma!4v1620000000000!5m2!1sen!2sma"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="École Marcel Arnaud Location"
+                  className="rounded-2xl"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
