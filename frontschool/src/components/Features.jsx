@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Users, Star, Award, Globe, Heart, Sparkles, ArrowRight, CheckCircle } from 'lucide-react';
+import { Newspaper, Calendar, GraduationCap, Users, Award, Microscope, ArrowRight, CheckCircle } from 'lucide-react';
 
 const Features = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -11,62 +11,55 @@ const Features = () => {
 
   const features = [
     {
-      icon: BookOpen,
-      title: "Excellence Académique",
-      description: "Des programmes rigoureux et adaptés qui préparent nos élèves aux défis de demain avec un taux de réussite exceptionnel de 98%.",
-      stats: "98% de réussite",
+      icon: Newspaper,
+      title: "Programmes Académiques Renforcés",
+      description: "Nos programmes éducatifs ont été enrichis avec des méthodes pédagogiques innovantes pour mieux préparer nos élèves aux défis futurs.",
       gradient: "bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600",
       hoverGradient: "group-hover:from-blue-600 group-hover:via-blue-700 group-hover:to-indigo-700"
     },
     {
-      icon: Users,
-      title: "Équipe Pédagogique",
-      description: "Des enseignants qualifiés et passionnés qui accompagnent chaque élève dans son parcours d'apprentissage personnalisé et bienveillant.",
-      stats: "25 élèves/classe",
+      icon: Calendar,
+      title: "Journée Portes Ouvertes",
+      description: "Venez découvrir notre établissement, nos installations modernes et échanger avec notre équipe pédagogique expérimentée.",
       gradient: "bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600",
       hoverGradient: "group-hover:from-blue-700 group-hover:via-indigo-700 group-hover:to-purple-700"
     },
     {
-      icon: Star,
-      title: "Innovation Pédagogique",
-      description: "Méthodes d'enseignement modernes intégrant les nouvelles technologies pour un apprentissage interactif et engageant du 21e siècle.",
-      stats: "100% numérique",
+      icon: GraduationCap,
+      title: "Excellents Résultats aux Examens",
+      description: "Nos élèves ont obtenu un taux de réussite exceptionnel de 98% aux examens nationaux, témoignant de la qualité de notre enseignement.",
       gradient: "bg-gradient-to-br from-indigo-500 via-blue-600 to-cyan-600",
       hoverGradient: "group-hover:from-indigo-600 group-hover:via-blue-700 group-hover:to-cyan-700"
     },
     {
-      icon: Award,
-      title: "Reconnaissance Officielle",
-      description: "École certifiée et reconnue par le ministère de l'Éducation avec des accréditations internationales prestigieuses.",
-      stats: "Certifiée ISO 9001",
+      icon: Users,
+      title: "Partenariat Stratégique",
+      description: "Collaboration avec des institutions locales pour enrichir l'expérience éducative et offrir plus d'opportunités à nos élèves.",
       gradient: "bg-gradient-to-br from-blue-600 via-blue-700 to-slate-700",
       hoverGradient: "group-hover:from-blue-700 group-hover:via-blue-800 group-hover:to-slate-800"
     },
     {
-      icon: Globe,
-      title: "Ouverture Internationale",
-      description: "Programmes d'échange, langues étrangères et partenariats avec des établissements du monde entier pour une vision globale.",
-      stats: "12 pays partenaires",
+      icon: Award,
+      title: "Reconnaissance Académique",
+      description: "Notre établissement a reçu la certification d'excellence pédagogique pour la qualité de son programme éducatif.",
       gradient: "bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600",
       hoverGradient: "group-hover:from-cyan-600 group-hover:via-blue-700 group-hover:to-indigo-700"
     },
     {
-      icon: Heart,
-      title: "Bien-être Étudiant",
-      description: "Un environnement bienveillant qui favorise l'épanouissement personnel et le développement des talents de chaque élève.",
-      stats: "Suivi personnalisé",
+      icon: Microscope,
+      title: "Enseignants Hautement Qualifiés",
+      description: "Notre équipe pédagogique compte des enseignants experts dans leurs domaines, formés aux dernières méthodes d'enseignement.",
       gradient: "bg-gradient-to-br from-purple-500 via-indigo-600 to-blue-600",
       hoverGradient: "group-hover:from-purple-600 group-hover:via-indigo-700 group-hover:to-blue-700"
     }
   ];
 
-  const handleVisitClick = () => {
-    // navigate('/contact', { state: { sujet: "Visite de l'école" } });
-    console.log('Navigate to contact with visit subject');
+  const handleInscriptionClick = () => {
+    console.log('Navigate to registration');
   };
 
-  const handleBrochureClick = () => {
-    console.log('Download brochure');
+  const handleContactClick = () => {
+    console.log('Navigate to contact');
   };
 
   return (
@@ -81,13 +74,10 @@ const Features = () => {
       <div className="container mx-auto px-4 max-w-7xl relative">
         {/* Enhanced Section Header */}
         <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          {/* Icon Badge */}
-
-
           {/* Main Title */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-700">Pourquoi choisir </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">notre école</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-700">Nos </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Atouts</span>
           </h2>
 
           {/* Animated Divider */}
@@ -100,12 +90,11 @@ const Features = () => {
 
           {/* Description */}
           <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
-            Nous offrons un environnement d'apprentissage exceptionnel avec des programmes innovants 
-            et un accompagnement personnalisé pour révéler le potentiel unique de chaque élève.
+            Découvrez les caractéristiques distinctives qui font de notre établissement un lieu d'excellence éducative.
           </p>
         </div>
 
-        {/* Enhanced Features Grid */}
+        {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
@@ -126,13 +115,6 @@ const Features = () => {
               >
                 {/* Gradient Background Effect */}
                 <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-5 transition-opacity duration-500 ${feature.gradient}`}></div>
-                
-                {/* Stats Badge */}
-                <div className="absolute top-6 right-6">
-                  <div className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold border border-blue-200/50 backdrop-blur-sm">
-                    {feature.stats}
-                  </div>
-                </div>
 
                 {/* Icon Container */}
                 <div className="relative mb-8">
@@ -150,12 +132,6 @@ const Features = () => {
                   <p className="text-gray-600 leading-relaxed mb-6 group-hover:text-gray-700 transition-colors duration-300">
                     {feature.description}
                   </p>
-
-                  {/* Learn More Link */}
-                  <div className="flex items-center text-blue-600 font-semibold text-sm group-hover:text-blue-700 transition-colors duration-300">
-                    <span className="opacity-0 group-hover:opacity-100 transition-all duration-300">En savoir plus</span>
-                    <ArrowRight className={`h-4 w-4 ml-2 transition-all duration-300 ${isHovered ? 'translate-x-1 opacity-100' : 'opacity-0 -translate-x-2'}`} />
-                  </div>
                 </div>
 
                 {/* Bottom Gradient Line */}
@@ -178,34 +154,33 @@ const Features = () => {
               </div>
               
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                Prêt à rejoindre notre 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> communauté éducative</span> ?
+                Prêt à nous 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> rejoindre</span> ?
               </h3>
               
               <p className="text-gray-600 text-lg mb-8 max-w-3xl mx-auto leading-relaxed font-light">
-                Découvrez comment notre école peut accompagner votre enfant vers l'excellence 
-                et révéler son plein potentiel dans un environnement stimulant.
+                Offrez à votre enfant une éducation d'excellence dans un environnement stimulant et bienveillant.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
-                  onClick={handleVisitClick}
+                  onClick={handleInscriptionClick}
                   className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center"
                 >
                   <span className="relative z-10 flex items-center">
-                    Programmer une visite
+                    Demande d'inscription
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
                 
                 <button 
-                  onClick={handleBrochureClick}
+                  onClick={handleContactClick}
                   className="group border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center"
                 >
                   <span className="flex items-center">
-                    Télécharger la brochure
-                    <BookOpen className="h-5 w-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+                    Visite Virtuelle
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                   </span>
                 </button>
               </div>
