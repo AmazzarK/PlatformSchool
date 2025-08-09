@@ -72,14 +72,6 @@ const ContactWithMap = () => {
       secondary: "admissions@marcelarnaud.ma",
       gradient: "bg-gradient-to-br from-purple-500 to-pink-600",
       bgColor: "bg-purple-50"
-    },
-    {
-      icon: Clock,
-      title: "Horaires d'Ouverture",
-      primary: "Lun-Ven: 8h00-17h00",
-      secondary: "Sam: 9h00-12h00",
-      gradient: "bg-gradient-to-br from-cyan-500 to-blue-600",
-      bgColor: "bg-cyan-50"
     }
   ];
 
@@ -114,61 +106,66 @@ const ContactWithMap = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 relative overflow-hidden">
-      {/* Background Patterns */}
-      <div className="absolute inset-0 opacity-40">
+    <section className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20 relative overflow-hidden">
+      {/* Background Patterns - Consistent with other sections */}
+      <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-20 w-40 h-40 bg-blue-200 rounded-full blur-3xl"></div>
         <div className="absolute top-60 right-20 w-56 h-56 bg-indigo-200 rounded-full blur-3xl"></div>
         <div className="absolute bottom-40 left-1/3 w-48 h-48 bg-purple-200 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative">
-        {/* Enhanced Section Header */}
-        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        
-
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-700">Contactez </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Nous</span>
-          </h2>
+        {/* Header Section - Matching Style */}
+        <div className={`text-center mb-16 lg:mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="relative inline-block mb-8">
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-100/20 to-indigo-100/20 blur-2xl rounded-full"></div>
+            <h2 className="relative text-4xl lg:text-6xl xl:text-7xl font-black leading-tight">
+              <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent">
+                Contactez 
+              </span>
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Nous
+              </span>
+            </h2>
+          </div>
 
           <div className="flex justify-center mb-8">
             <div className="relative">
-              <div className="w-32 h-1 bg-gradient-to-r from-blue-400 via-blue-600 to-indigo-600 rounded-full"></div>
-              <div className="absolute inset-0 w-32 h-1 bg-gradient-to-r from-blue-400 via-blue-600 to-indigo-600 rounded-full blur-sm opacity-50"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"></div>
+              <div className="absolute inset-0 w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full blur-sm opacity-50"></div>
             </div>
           </div>
 
-          <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
             Notre équipe dédiée est à votre disposition pour répondre à toutes vos questions 
             et vous accompagner dans votre projet éducatif avec expertise et bienveillance.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
-          {/* Enhanced Contact Information */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-7xl mx-auto mb-16 lg:mb-20">
+          {/* Contact Information */}
           <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+            <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-8 lg:mb-12">
               <span className="flex items-center">
-                <MapPin className="h-8 w-8 text-blue-600 mr-4" />
+                <MapPin className="h-6 w-6 lg:h-8 lg:w-8 text-blue-600 mr-3 lg:mr-4" />
                 Informations de Contact
               </span>
             </h3>
             
-            <div className="space-y-8 mb-12">
+            <div className="space-y-6 lg:space-y-8 mb-8 lg:mb-12">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
                   <div key={index} className="group transition-all duration-300 hover:translate-x-2">
                     <div className="flex items-start">
-                      <div className={`${info.gradient} rounded-2xl p-4 mr-6 flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
-                        <IconComponent className="h-6 w-6 text-white" />
+                      <div className={`${info.gradient} rounded-2xl p-3 lg:p-4 mr-4 lg:mr-6 flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
+                        <IconComponent className="h-5 w-5 lg:h-6 lg:w-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">{info.title}</h4>
+                        <h4 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 lg:mb-3 group-hover:text-blue-700 transition-colors duration-300">{info.title}</h4>
                         <div className="space-y-1">
-                          <p className="text-gray-700 font-medium">{info.primary}</p>
-                          <p className="text-gray-500 text-sm">{info.secondary}</p>
+                          <p className="text-gray-700 font-medium text-sm lg:text-base">{info.primary}</p>
+                          <p className="text-gray-500 text-xs lg:text-sm">{info.secondary}</p>
                         </div>
                       </div>
                     </div>
@@ -177,23 +174,23 @@ const ContactWithMap = () => {
               })}
             </div>
 
-            {/* Enhanced Hours */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50 mb-12">
-              <h4 className="text-xl font-bold text-gray-900 mb-6">
+            {/* Hours */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-xl border border-white/50">
+              <h4 className="text-lg lg:text-xl font-bold text-gray-900 mb-4 lg:mb-6">
                 <span className="flex items-center">
-                  <Clock className="h-6 w-6 text-blue-600 mr-3" />
+                  <Clock className="h-5 w-5 lg:h-6 lg:w-6 text-blue-600 mr-2 lg:mr-3" />
                   Horaires Détaillés
                 </span>
               </h4>
-              <div className="space-y-4">
+              <div className="space-y-3 lg:space-y-4">
                 {[
                   { day: "Lundi - Vendredi", hours: "8h00 - 17h00", active: true },
                   { day: "Samedi", hours: "9h00 - 12h00", active: true },
                   { day: "Dimanche", hours: "Fermé", active: false }
                 ].map((schedule, idx) => (
-                  <div key={idx} className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl">
-                    <span className="font-semibold text-gray-900">{schedule.day}</span>
-                    <span className={`font-bold ${schedule.active ? 'text-blue-600' : 'text-gray-400'}`}>
+                  <div key={idx} className="flex justify-between items-center p-3 lg:p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl">
+                    <span className="font-semibold text-gray-900 text-sm lg:text-base">{schedule.day}</span>
+                    <span className={`font-bold text-sm lg:text-base ${schedule.active ? 'text-blue-600' : 'text-gray-400'}`}>
                       {schedule.hours}
                     </span>
                   </div>
@@ -202,42 +199,42 @@ const ContactWithMap = () => {
             </div>
           </div>
 
-          {/* Enhanced Contact Form */}
+          {/* Contact Form */}
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-            <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/50 sticky top-8">
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-6 lg:p-8 xl:p-10 shadow-2xl border border-white/50 sticky top-8">
+              <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-6 lg:mb-8">
                 <span className="flex items-center">
-                  <Send className="h-8 w-8 text-blue-600 mr-4" />
+                  <Send className="h-6 w-6 lg:h-8 lg:w-8 text-blue-600 mr-3 lg:mr-4" />
                   Envoyez-nous un Message
                 </span>
               </h3>
               
               {isSubmitted ? (
-                <div className="text-center py-16">
-                  <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-8 shadow-lg">
-                    <CheckCircle className="h-12 w-12 text-green-600" />
+                <div className="text-center py-12 lg:py-16">
+                  <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-full w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center mx-auto mb-6 lg:mb-8 shadow-lg">
+                    <CheckCircle className="h-10 w-10 lg:h-12 lg:w-12 text-green-600" />
                   </div>
-                  <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Message Envoyé !</h4>
-                  <p className="text-gray-600 text-lg leading-relaxed max-w-md mx-auto">
+                  <h4 className="text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-3 lg:mb-4">Message Envoyé !</h4>
+                  <p className="text-gray-600 text-base lg:text-lg leading-relaxed max-w-md mx-auto">
                     Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais.
                   </p>
-                  <div className="flex items-center justify-center mt-6 text-blue-600">
-                    <Star className="h-5 w-5 fill-current" />
-                    <Star className="h-5 w-5 fill-current mx-1" />
-                    <Star className="h-5 w-5 fill-current" />
+                  <div className="flex items-center justify-center mt-4 lg:mt-6 text-blue-600">
+                    <Star className="h-4 w-4 lg:h-5 lg:w-5 fill-current" />
+                    <Star className="h-4 w-4 lg:h-5 lg:w-5 fill-current mx-1" />
+                    <Star className="h-4 w-4 lg:h-5 lg:w-5 fill-current" />
                   </div>
                 </div>
               ) : (
-                <div className="space-y-6">
-                  {/* Enhanced Name Fields */}
-                  <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4 lg:space-y-6">
+                  {/* Name Fields */}
+                  <div className="grid md:grid-cols-2 gap-4 lg:gap-6">
                     {[
                       { name: 'firstName', label: 'Prénom', placeholder: 'Votre prénom' },
                       { name: 'lastName', label: 'Nom', placeholder: 'Votre nom' }
                     ].map((field) => (
                       <div key={field.name} className="relative">
-                        <label className="text-gray-700 font-semibold mb-3 flex items-center">
-                          <User className="h-4 w-4 mr-2 text-blue-600" />
+                        <label className="text-gray-700 font-semibold mb-2 lg:mb-3 flex items-center text-sm lg:text-base">
+                          <User className="h-3 w-3 lg:h-4 lg:w-4 mr-1 lg:mr-2 text-blue-600" />
                           {field.label} *
                         </label>
                         <input 
@@ -247,7 +244,7 @@ const ContactWithMap = () => {
                           onChange={handleInputChange}
                           onFocus={() => setFocusedField(field.name)}
                           onBlur={() => setFocusedField(null)}
-                          className={`w-full px-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                          className={`w-full px-3 lg:px-4 py-3 lg:py-4 border border-gray-300 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-sm lg:text-base ${
                             focusedField === field.name ? 'transform scale-[1.02] shadow-lg' : ''
                           }`}
                           placeholder={field.placeholder}
@@ -257,11 +254,11 @@ const ContactWithMap = () => {
                     ))}
                   </div>
                   
-                  {/* Enhanced Contact Fields */}
-                  <div className="grid md:grid-cols-2 gap-6">
+                  {/* Contact Fields */}
+                  <div className="grid md:grid-cols-2 gap-4 lg:gap-6">
                     <div className="relative">
-                      <label className="text-gray-700 font-semibold mb-3 flex items-center">
-                        <Mail className="h-4 w-4 mr-2 text-blue-600" />
+                      <label className="text-gray-700 font-semibold mb-2 lg:mb-3 flex items-center text-sm lg:text-base">
+                        <Mail className="h-3 w-3 lg:h-4 lg:w-4 mr-1 lg:mr-2 text-blue-600" />
                         Email *
                       </label>
                       <input 
@@ -271,7 +268,7 @@ const ContactWithMap = () => {
                         onChange={handleInputChange}
                         onFocus={() => setFocusedField('email')}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full px-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                        className={`w-full px-3 lg:px-4 py-3 lg:py-4 border border-gray-300 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-sm lg:text-base ${
                           focusedField === 'email' ? 'transform scale-[1.02] shadow-lg' : ''
                         }`}
                         placeholder="votre.email@exemple.com"
@@ -279,8 +276,8 @@ const ContactWithMap = () => {
                       />
                     </div>
                     <div className="relative">
-                      <label className="text-gray-700 font-semibold mb-3 flex items-center">
-                        <Phone className="h-4 w-4 mr-2 text-blue-600" />
+                      <label className="text-gray-700 font-semibold mb-2 lg:mb-3 flex items-center text-sm lg:text-base">
+                        <Phone className="h-3 w-3 lg:h-4 lg:w-4 mr-1 lg:mr-2 text-blue-600" />
                         Téléphone
                       </label>
                       <input 
@@ -290,7 +287,7 @@ const ContactWithMap = () => {
                         onChange={handleInputChange}
                         onFocus={() => setFocusedField('phone')}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full px-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                        className={`w-full px-3 lg:px-4 py-3 lg:py-4 border border-gray-300 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-sm lg:text-base ${
                           focusedField === 'phone' ? 'transform scale-[1.02] shadow-lg' : ''
                         }`}
                         placeholder="+212 6 12 34 56 78"
@@ -298,16 +295,16 @@ const ContactWithMap = () => {
                     </div>
                   </div>
                   
-                  {/* Enhanced Subject */}
+                  {/* Subject */}
                   <div className="relative">
-                    <label className="text-gray-700 font-semibold mb-3">Sujet *</label>
+                    <label className="text-gray-700 font-semibold mb-2 lg:mb-3 text-sm lg:text-base">Sujet *</label>
                     <select 
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
                       onFocus={() => setFocusedField('subject')}
                       onBlur={() => setFocusedField(null)}
-                      className={`w-full px-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                      className={`w-full px-3 lg:px-4 py-3 lg:py-4 border border-gray-300 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-sm lg:text-base ${
                         focusedField === 'subject' ? 'transform scale-[1.02] shadow-lg' : ''
                       }`}
                       required
@@ -321,20 +318,20 @@ const ContactWithMap = () => {
                     </select>
                   </div>
                   
-                  {/* Enhanced Message */}
+                  {/* Message */}
                   <div className="relative">
-                    <label className="text-gray-700 font-semibold mb-3 flex items-center">
-                      <MessageSquare className="h-4 w-4 mr-2 text-blue-600" />
+                    <label className="text-gray-700 font-semibold mb-2 lg:mb-3 flex items-center text-sm lg:text-base">
+                      <MessageSquare className="h-3 w-3 lg:h-4 lg:w-4 mr-1 lg:mr-2 text-blue-600" />
                       Message *
                     </label>
                     <textarea 
-                      rows="6" 
+                      rows="5" 
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
                       onFocus={() => setFocusedField('message')}
                       onBlur={() => setFocusedField(null)}
-                      className={`w-full px-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 resize-none ${
+                      className={`w-full px-3 lg:px-4 py-3 lg:py-4 border border-gray-300 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 resize-none text-sm lg:text-base ${
                         focusedField === 'message' ? 'transform scale-[1.02] shadow-lg' : ''
                       }`}
                       placeholder="Décrivez votre demande en détail..."
@@ -342,12 +339,12 @@ const ContactWithMap = () => {
                     ></textarea>
                   </div>
                   
-                  {/* Enhanced Submit Button */}
+                  {/* Submit Button */}
                   <button 
                     type="button"
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className={`group relative w-full overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl ${
+                    className={`group relative w-full overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 lg:py-4 rounded-xl lg:rounded-2xl font-bold text-base lg:text-lg transition-all duration-300 shadow-lg hover:shadow-xl ${
                       isSubmitting 
                         ? 'opacity-75 cursor-not-allowed' 
                         : 'hover:scale-[1.02] active:scale-[0.98]'
@@ -356,12 +353,12 @@ const ContactWithMap = () => {
                     <span className="relative z-10 flex items-center justify-center">
                       {isSubmitting ? (
                         <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+                          <div className="animate-spin rounded-full h-4 w-4 lg:h-5 lg:w-5 border-b-2 border-white mr-2 lg:mr-3"></div>
                           Envoi en cours...
                         </>
                       ) : (
                         <>
-                          <Send className="h-5 w-5 mr-3 group-hover:translate-x-1 transition-transform duration-300" />
+                          <Send className="h-4 w-4 lg:h-5 lg:w-5 mr-2 lg:mr-3 group-hover:translate-x-1 transition-transform duration-300" />
                           Envoyer le Message
                         </>
                       )}
@@ -369,35 +366,30 @@ const ContactWithMap = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </button>
 
-                  {/* Privacy Notice */}
-                  <p className="text-sm text-gray-500 text-center leading-relaxed bg-gray-50 rounded-xl p-4">
-                    🔒 En soumettant ce formulaire, vous acceptez que vos données soient utilisées 
-                    pour répondre à votre demande conformément à notre politique de confidentialité.
-                  </p>
+
                 </div>
               )}
             </div>
           </div>
         </div>
         
-        {/* Full Width Map Section */}
-        <div className={`mt-24 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        {/* Map Section */}
+        <div className={`mb-16 lg:mb-20 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="text-center mb-8 lg:mb-12">
+            <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-3 lg:mb-4">
               <span className="flex items-center justify-center">
-                <MapPin className="h-8 w-8 text-blue-600 mr-4" />
+                <MapPin className="h-6 w-6 lg:h-8 lg:w-8 text-blue-600 mr-3 lg:mr-4" />
                 Notre Localisation
               </span>
             </h3>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
               Située au cœur de Casablanca, notre école est facilement accessible en transport public et privé
             </p>
           </div>
           
-          {/* Full width map container */}
           <div className="w-full relative">
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-white/50 overflow-hidden">
-              <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl h-96 w-full overflow-hidden shadow-lg">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-3 lg:p-4 shadow-xl border border-white/50 overflow-hidden">
+              <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl lg:rounded-2xl h-64 lg:h-96 w-full overflow-hidden shadow-lg">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.349389578856!2d-7.5497608!3d33.5824923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd803d3821b1%3A0xbb657083817e6990!2sBd%20du%20Fouarat%2C%20Casablanca%2020250!5e0!3m2!1sen!2sma!4v1620000000000!5m2!1sen!2sma"
                   width="100%"
@@ -407,55 +399,55 @@ const ContactWithMap = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="École Marcel Arnaud Location"
-                  className="rounded-2xl"
+                  className="rounded-xl lg:rounded-2xl"
                 ></iframe>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Enhanced Quick Contact Cards */}
-        <div className={`mt-24 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contacts Directs</h3>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        {/* Quick Contact Cards */}
+        <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="text-center mb-12 lg:mb-16">
+            <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-3 lg:mb-4">Contacts Directs</h3>
+            <p className="text-gray-600 text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
               Contactez directement le service adapté à votre demande pour un traitement plus rapide
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {quickContacts.map((contact, index) => {
               const IconComponent = contact.icon;
               return (
                 <div 
                   key={index}
-                  className={`group ${contact.bgGradient} rounded-3xl p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 border border-white/50 backdrop-blur-sm`}
+                  className={`group ${contact.bgGradient} rounded-2xl lg:rounded-3xl p-6 lg:p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 border border-white/50 backdrop-blur-sm`}
                 >
-                  <div className={`${contact.gradient} rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
-                    <IconComponent className="h-10 w-10 text-white" />
+                  <div className={`${contact.gradient} rounded-xl lg:rounded-2xl w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mx-auto mb-4 lg:mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
+                    <IconComponent className="h-8 w-8 lg:h-10 lg:w-10 text-white" />
                   </div>
                   
-                  <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">
+                  <h4 className="text-lg lg:text-xl xl:text-2xl font-bold text-gray-900 mb-3 lg:mb-4 group-hover:text-blue-700 transition-colors duration-300">
                     {contact.title}
                   </h4>
                   
-                  <p className="text-gray-600 mb-6 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                  <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-sm lg:text-base">
                     {contact.description}
                   </p>
                   
-                  <div className="space-y-3">
-                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm">
-                      <p className="text-blue-600 font-bold text-sm">{contact.email}</p>
+                  <div className="space-y-2 lg:space-y-3">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-lg lg:rounded-xl p-2 lg:p-3 shadow-sm">
+                      <p className="text-blue-600 font-bold text-xs lg:text-sm">{contact.email}</p>
                     </div>
-                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm">
-                      <p className="text-gray-700 font-semibold text-sm">{contact.phone}</p>
+                    <div className="bg-white/80 backdrop-blur-sm rounded-lg lg:rounded-xl p-2 lg:p-3 shadow-sm">
+                      <p className="text-gray-700 font-semibold text-xs lg:text-sm">{contact.phone}</p>
                     </div>
                   </div>
 
-                  <div className="mt-6 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <div className="flex items-center justify-center text-blue-600 font-semibold text-sm">
+                  <div className="mt-4 lg:mt-6 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="flex items-center justify-center text-blue-600 font-semibold text-xs lg:text-sm">
                       <span>Contacter maintenant</span>
-                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      <ArrowRight className="h-3 w-3 lg:h-4 lg:w-4 ml-1 lg:ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
                 </div>

@@ -38,8 +38,7 @@ const Header = () => {
     { href: '#HeroCarousel', label: 'Accueil', isActive: true },
     { href: '#AboutSection', label: 'Atouts' },
     { href: '#programs', label: 'Programmes' },
-    { href: '#Features', label: 'Actualités' },
-    { href: './EventsPages', label: 'Événements' },
+    { href: '#Features', label: 'Evenements' },
     { href: '#ContactSection', label: 'Contact' }
   ], []);
 

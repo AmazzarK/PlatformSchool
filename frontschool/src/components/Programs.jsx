@@ -135,20 +135,26 @@ const Programs = () => {
   };
 
   return (
-    <section className="min-h-screen py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30">
+    <section className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20">
       <div className="container mx-auto px-4 max-w-7xl">
-        {/* Enhanced Header Section */}
+        {/* Enhanced Header Section - Matching "À propos de nous" style */}
         <div className="text-center mb-16 relative">
-
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-700">Parcours Éducatifs </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Complets</span>
+          <h2 className="text-4xl lg:text-6xl xl:text-7xl font-black mb-6 relative">
+            <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent">
+              Parcours Éducatifs
+            </span>
+            <div className="absolute -inset-2 bg-gradient-to-r from-blue-100/20 to-indigo-100/20 blur-2xl -z-10 rounded-2xl"></div>
           </h2>
-          <p className="text-gray-600 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-light">
+          
+          <div className="relative mb-8">
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
+            <div className="absolute inset-0 w-24 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 mx-auto rounded-full blur-sm opacity-60"></div>
+          </div>
+          
+          <p className="text-gray-600 max-w-4xl mx-auto text-lg lg:text-xl leading-relaxed font-medium">
             De la maternelle au lycée, nous proposons un parcours éducatif complet 
-            adapté à chaque étape du développement de votre enfant.
+            adapté à chaque étape du développement de votre enfant avec excellence et bienveillance.
           </p>
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/5 via-transparent to-indigo-600/5 rounded-3xl blur-3xl"></div>
         </div>
 
         {/* Enhanced Program Tabs */}

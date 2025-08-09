@@ -99,7 +99,7 @@ export default function AboutSection() {
     <section 
       id="about" 
       ref={sectionRef}
-      className="py-24 bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20 relative overflow-hidden"
+      className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20 relative overflow-hidden"
       onMouseMove={handleMouseMove}
     >
       {/* Professional Light Smoke Background */}
@@ -143,16 +143,15 @@ export default function AboutSection() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20">
         {/* Enhanced Header Section */}
-        <div className="text-center mb-20">
-          
-          <h2 className="text-4xl lg:text-6xl xl:text-7xl font-black mb-8 relative">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-6xl xl:text-7xl font-black mb-6 relative">
             <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent">
               À propos de nous
             </span>
             <div className="absolute -inset-2 bg-gradient-to-r from-blue-100/20 to-indigo-100/20 blur-2xl -z-10 rounded-2xl"></div>
           </h2>
           
-          <div className="relative mb-10">
+          <div className="relative mb-8">
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
             <div className="absolute inset-0 w-24 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 mx-auto rounded-full blur-sm opacity-60"></div>
           </div>
@@ -167,7 +166,7 @@ export default function AboutSection() {
         {/* Enhanced Mission Statement */}
         <div 
           ref={missionRef}
-          className={`relative mb-20 group transition-all duration-1000 ${
+          className={`relative group transition-all duration-1000 ${
             missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -216,98 +215,6 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-
-        {/* Enhanced Features Grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-            const isVisible = visibleCards.has(index);
-            const Icon = feature.icon;
-            
-            return (
-              <div
-                key={index}
-                data-index={index}
-                className={`group relative transition-all duration-700 ${
-                  isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-12'
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                {/* Card Background with Light Smoke */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-blue-50/40 to-indigo-50/30 rounded-2xl blur-sm group-hover:blur-md transition-all duration-500"></div>
-                
-                <div className="relative bg-white/80 backdrop-blur-lg rounded-2xl p-8 border border-blue-200/30 shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/10 transform group-hover:-translate-y-2 transition-all duration-500">
-                  
-                  {/* Floating Icon Container */}
-                  <div className="relative mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${feature.accent} rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500 mx-auto`}>
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    
-                    {/* Icon Glow Effect */}
-                    <div className={`absolute inset-0 w-16 h-16 bg-gradient-to-br ${feature.accent} rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-all duration-500 mx-auto`}></div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="text-center">
-                    <h4 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-blue-700 transition-colors duration-300">
-                      {feature.title}
-                    </h4>
-                    
-                    <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                      {feature.description}
-                    </p>
-                  </div>
-
-                  {/* Hover Arrow */}
-                  <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                    <ArrowRight className="w-5 h-5 text-blue-600" />
-                  </div>
-
-                  {/* Card Border Glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/0 via-blue-500/30 to-blue-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Enhanced Call to Action */}
-        <div className="text-center mt-20">
-          <div className="relative inline-block">
-            <button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white px-10 py-4 rounded-2xl font-bold text-lg transition-all duration-500 shadow-xl shadow-blue-600/25 hover:shadow-2xl hover:shadow-blue-600/40 transform hover:-translate-y-1">
-              
-              {/* Animated shine effect */}
-              <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              
-              <span className="relative z-10 flex items-center space-x-2">
-                <span>Découvrir notre approche</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Ambient Light Effects */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div 
-          className="absolute w-96 h-96 bg-blue-400/5 rounded-full blur-3xl transition-all duration-1000"
-          style={{
-            left: `${30 + mousePosition.x * 20}%`,
-            top: `${40 + mousePosition.y * 20}%`,
-            transform: 'translate(-50%, -50%)'
-          }}
-        />
-        <div 
-          className="absolute w-80 h-80 bg-indigo-400/8 rounded-full blur-3xl transition-all duration-1000"
-          style={{
-            right: `${20 + mousePosition.x * -15}%`,
-            bottom: `${30 + mousePosition.y * -15}%`,
-            transform: 'translate(50%, 50%)'
-          }}
-        />
       </div>
     </section>
   );
